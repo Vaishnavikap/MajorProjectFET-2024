@@ -1,0 +1,55 @@
+#Left {
+    width: 290px;
+    height: 100vh;
+    background-color: #121212;
+    color: #fff;
+    padding-right: 10px;
+    margin: -10px;
+    box-sizing: border-box;
+  }
+  
+  .Logo {
+    padding: 20px;
+    color: #1db954;
+  }
+  
+  .Common {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .Common:hover {
+    background-color: #282828;
+  }
+  
+  .Common:hover .CommomText {
+    color: #1db954;
+  }
+  
+  .ok {
+    margin-right: 10px;
+  }
+  
+  .Line {
+    border-bottom: 1px solid #555;
+    margin: 20px;
+  }
+  
+  .CommomText {
+    font-size: 16px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 576px) {
+    #Left {
+      width: 100%;
+      padding-right: 0;
+      margin: 0;
+    }
+  
+    .Common {
+      padding: 10px;
+    }
+  }
