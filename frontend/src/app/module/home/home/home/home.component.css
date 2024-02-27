@@ -1,0 +1,37 @@
+.sidebar {
+    width: 300px;
+    height: 100%;
+    background-color: #333;
+    top:0;
+    color: #fff;
+ 
+    box-sizing: border-box;
+    position:fixed;
+    margin-left: 0;
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+}
+
+.nav {
+    flex: 1;
+    background-color: #007bff;
+    color: #fff;
+    box-sizing: border-box;
+    top: 0;
+    position: fixed;
+    margin-left: 300px;   
+    width: 100%;
+}
+
+.footer {
+    background-color: #db1111;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    margin-left: 300px;
+    bottom: 0;
+    width: 100%;
+}

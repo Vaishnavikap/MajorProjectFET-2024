@@ -1,149 +1,50 @@
-/* Original Styles */
-.spotify__top-nav {
-  width: 78%;
-  height: 74px;
-  background: #0f0f0f;
-  position: fixed;
-  top: 0;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  color: lightgray;
-  font-weight: bold;
-  font-size: 18px;
-  padding-right: 200px;
-  margin-left: 16.5%;
+.spotify-top-nav {
+    flex: 1;
+    background-color: #000307;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    top: 0;
+    position: fixed;
+    height: 60px;
+    width: 100%;
 }
-
-.spotify__top-nav_auth {
+.navigation{
   display: flex;
   flex-direction: row;
-  list-style: none;
-  justify-content: space-evenly;
-  align-items: center;
   gap: 20px;
-  margin-top: 14px;
-}
+  top: 0;
 
-.backward_btn,
-.forward_btn {
-  border-radius: 50%;
-  background-color: black;
-  color: white;
-  font-size: larger;
-  width: 48px;
-  height: 45px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-
-.forward_btn {
-  margin-left: 30px;
-}
-
-.backward_btn {
-  margin-left: 12px;
-}
-
-.spotify__top-nav_auth_login {
-  background-color: white;
-  padding: 17px;
-  border-radius: 40px;
-  color: black;
-  font-weight: bold;
-  width: 110px;
-  text-align: center;
-  margin-right: 20px;
-}
-
-.spotify__top-nav_auth_login,
-.spotify__top-nav_auth_login:hover {
-  background-color: white;
-  color: black;
-  cursor: pointer;
-}
-
-.spotify__top-nav_auth_signup {
-  background-color: transparent;
-  padding: 17px;
-  border-radius: 40px;
-  color: white;
-  font-weight: bold;
-  width: 90px;
-  text-align: center;
-  margin-right: 20px;
-}
-
-.spotify__top-nav_auth_signup:hover {
-  cursor: pointer;
-  color: rgb(9, 185, 9);
-  background-color: rgb(32, 32, 32);
-}
-
-input.search_playlist {
+.forward-btn, .backward-btn{
+  background-color:black;
+  color: #ffffff;
+  height: 27px;
   border: none;
-  width: 350px;
+  outline: none;
+  font-size: 15px;
+}
+.auth{
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    font-size: 30px;
+}
+.sign-in,
+.login {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 17px; 
+    padding: 8px 12px;
+}
+
+.sign-in:hover,
+.login:hover {
+  background-color: white;
+  color:#1db954 ;
   border-radius: 20px;
-  height: 40px;
-  padding: 14px;
-  font-size: 14px;
-}
-
-input.search_playlist::placeholder {
-  color: rgb(64, 64, 64);
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-body {
-  margin: 0;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-@media (max-width: 576px) {
-  body {
-    overflow-x: auto; /* Allow horizontal scrolling for the entire page */
-  }
-
-  .spotify__top-nav {
-    width: 97.2%;
-    padding-right: 10px;
-    margin-left: 0;
-    position:relative;
-  }
-
-  .spotify__top-nav_auth {
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .backward_btn,
-  .forward_btn {
-    font-size: 14px;
-    width: 40px;
-    height: 40px;
-  }
-
-  .forward_btn {
-    margin-left: 25px;
-  }
-
-  .backward_btn {
-    margin-left: 5px;
-  }
-
-  .spotify__top-nav_auth_login {
-    padding: 14px;
-    width: 90px;
-    margin-right: 10px;
-  }
-  .spotify__top-nav_auth_signup {
-    padding: 14px;
-    width: 90px;
-    margin-right: 10px;
-  }
-  input.search_playlist {
-    width: 250px;
-  }
 }

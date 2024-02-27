@@ -5,19 +5,21 @@ import { HomeRoutingModule } from './home-routing.module';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home/home.component';
 
 @NgModule({
   declarations: [
     SideBarComponent,
     TopNavComponent,
     FooterComponent,
+    HomeComponent
   
   ],
   imports: [
     CommonModule,
     HomeRoutingModule
   ],
-  exports:[SideBarComponent,TopNavComponent, FooterComponent],
+  exports:[SideBarComponent,TopNavComponent, FooterComponent, HomeComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule { }
