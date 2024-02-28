@@ -8,14 +8,37 @@
     position: fixed;
     height: 60px;
     width: 100%;
+    
 }
 .navigation{
   display: flex;
   flex-direction: row;
   gap: 20px;
   top: 0;
-
 }
+.search-container{
+  width:100%;
+}
+.search-box {
+  padding: 5px;
+  font-size: 15px;
+  border: 1px solid #555;
+  background-color: #333;
+  color: #fff;
+  border-radius: 15px;
+  outline: none;
+  width: 18%;
+}
+
+.search-box::placeholder {
+  color: #ccc;
+}
+
+.search-box:focus {
+  border-color:white;
+  box-shadow: 0 0 5px rgba(29, 185, 84, 0.7);
+}
+
 .forward-btn, .backward-btn{
   background-color:black;
   color: #ffffff;
