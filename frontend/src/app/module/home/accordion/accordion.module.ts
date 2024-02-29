@@ -9,6 +9,6 @@ import { AccordionRoutingModule } from './accordion-routing.module';
   imports: [
     CommonModule,
     AccordionRoutingModule
-  ]
+  ],exports:[AccordionComponent ]
 })
 export class AccordionModule { }
