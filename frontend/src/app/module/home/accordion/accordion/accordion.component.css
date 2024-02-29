@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700&display=swap");
+
+body {
+    background: #0d1117;
+    color: #c9d1d9;
+    font-family: "Sora", sans-serif;
+}
+.abc{
+   
+    background: #0d1117;
+}
+.accordion {
+    max-width: 991px;
+    min-width: 320px;
+    margin: 50px auto;
+    padding: 0 50px;
+}
+
+.accordion h1 {
+    font-size: 32px;
+    text-align: center;
+    color: #1ed760; /* Spotify green */
+}
+
+.accordion-item {
+    margin-top: 16px;
+    border: 1px solid #2d333b; /* Darker background for accordion item */
+    border-radius: 6px;
+    background: #0d1117; /* Dark background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-item .accordion-item-title {
+    position: relative;
+    margin: 0;
+    display: flow-root;
+    width: 100%;
+    font-size: 15px;
+    cursor: pointer;
+    justify-content: space-between;
+    padding: 14px 20px;
+    box-sizing: border-box;
+    align-items: center;
+    color: #c9d1d9; /* Light text color */
+}
+
+.accordion-item .accordion-item-desc {
+    display: none;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 300;
+    color: #c9d1d9; /* Light text color */
+    border-top: 1px dashed #2d333b; /* Darker border color */
+    padding: 10px 20px 20px;
+    box-sizing: border-box;
+}
+
+.accordion-item input[type="checkbox"] {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+}
+
+.accordion-item input[type="checkbox"]:checked ~ .accordion-item-desc {
+    display: block;
+}
+
+.accordion-item input[type="checkbox"]:checked ~ .accordion-item-title .icon:after {
+    content: "-";
+    font-size: 20px;
+}
+
+.accordion-item input[type="checkbox"] ~ .accordion-item-title .icon:after {
+    content: "+";
+    font-size: 20px;
+}
+
+.accordion-item:first-child {
+    margin-top: 0;
+}
+
+.accordion-item .icon {
+    margin-left: 14px;
+}
+
+
+@media screen and (max-width: 767px) {
+    .accordion {
+        padding: 0 16px;
+    }
+    .accordion h1 {
+        font-size: 22px;
+    }
+}
