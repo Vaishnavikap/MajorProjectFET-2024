@@ -1,2 +1,2 @@
 const mongoose=require("mongoose")
-mongoose.connect("mongodb+srv://mosmeep:Mosmee%4017@cluster0.0d6hjbd.mongodb.net/Major_Project")
+mongoose.connect("mongodb://localhost:27017/FEIT_angular")
