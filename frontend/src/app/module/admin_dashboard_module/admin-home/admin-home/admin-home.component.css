@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: black; /* Set the background color to black */
+    color: white; /* Set text color to white */
+  }
+  
+ 
+  
+ .content {
+    flex-grow: 1; /* Allow the header and content to grow and fill the remaining space */
+    padding: 20px;
+    background-color: #ffffff; /* Add padding for better readability */
+  }
+  
