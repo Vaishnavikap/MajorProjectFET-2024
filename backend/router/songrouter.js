@@ -12,6 +12,7 @@ const handleUploadSong = async (req, res) => {
     }
   };
   songRouter.post("/song", handleUploadSong);
+  console.log("songs")
   
 
 module.exports = songRouter;
