@@ -11,6 +11,7 @@ export class SongUploadComponent implements OnInit {
   uploadForm!: FormGroup;
   imageFile!: File;
   songFile!: File;
+  formVisible!: boolean;
 
   constructor(private formBuilder: FormBuilder, private songUploadService: SongUploadService ) { }
 
@@ -36,6 +37,7 @@ export class SongUploadComponent implements OnInit {
       () => {
         console.log("done")
         alert('Song uploaded successfully.');
+        this.uploadForm.reset();
       },
       error => {
         console.error(error);
@@ -49,4 +51,13 @@ export class SongUploadComponent implements OnInit {
 
   onsongFileChange(event: any) {
     this.songFile = event.target.files[0];
-  }}
+    
+  }
+
+  onCancel() {
+    // Method to handle closing the form
+    this.formVisible = false;
+    console.log("hello")
+  }
+}
+ 

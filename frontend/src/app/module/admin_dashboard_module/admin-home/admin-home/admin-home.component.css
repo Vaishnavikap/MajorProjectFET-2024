@@ -1,15 +1,73 @@
 .container {
-    display: flex;
-    flex-direction: row;
-    background-color: black; /* Set the background color to black */
-    color: white; /* Set text color to white */
+  display: flex;
+}
+
+.admin_sidebar {
+  width: 200px;
+  background-color: #f0f0f0;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.admin_nav {
+  margin-left: 300px; /* Width of the sidebar */
+  background-color: #121212;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 200px); /* Adjust width to exclude sidebar */
+}
+
+.admin_content {
+  margin-top: 50px; /* Height of the top nav */
+  margin-left: 300px; /* Width of the sidebar */
+  padding: 20px;
+  width: calc(100% - 200px); /* Adjust width to exclude sidebar */
+}
+@media only screen and (max-width: 768px) {
+  .admin_nav {
+    margin-left: 200px; /* Width of the sidebar */
+    width: calc(100% - 200px); /* Adjust width to exclude sidebar */
   }
-  
- 
-  
- .content {
-    flex-grow: 1; /* Allow the header and content to grow and fill the remaining space */
-    padding: 20px;
-    background-color: #ffffff; /* Add padding for better readability */
+
+  .admin_content {
+    margin-left: 200px; /* Width of the sidebar */
+    width: calc(100% - 200px); /* Adjust width to exclude sidebar */
   }
-  
+}
+
+@media only screen and (max-width: 576px) {
+  .admin_sidebar {
+    width: 150px;
+  }
+
+  .admin_nav {
+    margin-left: 150px; /* Width of the sidebar */
+    width: calc(100% - 150px); /* Adjust width to exclude sidebar */
+  }
+
+  .admin_content {
+    margin-left: 150px; /* Width of the sidebar */
+    width: calc(100% - 150px); /* Adjust width to exclude sidebar */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .admin_sidebar {
+    width: 250px;
+  }
+
+  .admin_nav {
+    margin-left: 250px; /* Width of the sidebar */
+    width: calc(100% - 250px); /* Adjust width to exclude sidebar */
+  }
+
+  .admin_content {
+    margin-left: 250px; /* Width of the sidebar */
+    width: calc(100% - 250px); /* Adjust width to exclude sidebar */
+  }
+}

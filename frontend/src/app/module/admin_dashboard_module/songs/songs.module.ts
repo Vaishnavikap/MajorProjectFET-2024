@@ -9,7 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SongUploadService } from '../../../service/song-upload.service';
-
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import { SongUploadService } from '../../../service/song-upload.service';
     MatInputModule,
     HttpClientModule,
     ReactiveFormsModule ,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
   ],
   providers:[SongUploadService ]
 })

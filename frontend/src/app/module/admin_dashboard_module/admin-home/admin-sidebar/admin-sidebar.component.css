@@ -1,39 +1,58 @@
-
 #side {
-    width: 300px; /* Set the width of the sidebar */
-    height: 100%; /* Set the height to cover the full height of the viewport */
-    background-color: #121212; /* Set the background color */
-    color: #fff; /* Set the text color to white */
-    position: fixed; /* Fix the sidebar position */
-    top: 0; /* Align the sidebar to the top */
-    left: 0; /* Align the sidebar to the left */
-    box-sizing: border-box; /* Include padding and border in the width and height */
-    padding: 20px; /* Add padding for better spacing */
-  }
-  
-  .Common {
-    margin-bottom: 20px; /* Add margin between each navigation item */
-  }
-  
-  .Common a {
-    text-decoration: none; /* Remove underline from links */
-    color: #fff; /* Set link color to white */
-  }
-  
-  .logout-btn {
-    position: absolute; /* Position the logout button */
-    bottom: 20px; /* Align the logout button to the bottom */
-    left: 20px; /* Align the logout button to the left */
-  }
-  
-  .logout-btn a {
-    display: flex; /* Use flexbox to align icon and text */
-    align-items: center; /* Align items vertically */
-    text-decoration: none; /* Remove underline from link */
-    color: #fff; /* Set link color to white */
-  }
-  
-  .fa-sign-out {
-    margin-right: 5px; /* Add margin between icon and text */
-  }
-  
+  width: 300px; /* Set the width of the sidebar */
+  height: 100%; /* Set the height to cover the full height of the viewport */
+  background-color: #121212; /* Set the background color */
+  color: #fff; /* Set the text color to white */
+  position: fixed; /* Fix the sidebar position */
+  top: 0; /* Align the sidebar to the top */
+  left: 0; /* Align the sidebar to the left */
+  box-sizing: border-box; /* Include padding and border in the width and height */
+  padding: 20px; /* Add padding for better spacing */
+  font-family: Arial, sans-serif; /* Set font family */
+}
+
+.sidebarheader {
+  text-align: center; /* Center align the header */
+  margin-bottom: 30px; /* Add margin below the header */
+}
+
+.sidebar1 {
+  display: flex; /* Use flexbox for aligning icon and text */
+  align-items: center; /* Align items vertically */
+  margin-bottom: 20px; /* Add margin below each navigation item */
+}
+
+.Common a {
+  display: flex; /* Use flexbox to align icon and text */
+  align-items: center; /* Align items vertically */
+  text-decoration: none; /* Remove underline from links */
+  color: #fff; /* Set link color to white */
+  margin-bottom: 20px; /* Add margin below each navigation item */
+}
+
+.Common a:hover {
+  color: #1db954; /* Change link color on hover */
+}
+
+.fa {
+  margin-right: 10px;
+font-size: larger;
+}
+
+.logout-btn {
+  position: absolute; /* Position the logout button */
+  bottom: 20px; /* Align the logout button to the bottom */
+  left: 20px; /* Align the logout button to the left */
+}
+
+.logout-btn a {
+  display: flex; /* Use flexbox to align icon and text */
+  align-items: center; /* Align items vertically */
+  text-decoration: none; /* Remove underline from link */
+  color: #fff; /* Set link color to white */
+}
+
+.logout-btn a:hover {
+  color: #1db954;; /* Change link color on hover */
+}
+
