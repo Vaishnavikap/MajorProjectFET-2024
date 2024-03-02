@@ -25,9 +25,8 @@ export class PaymentComponent {
           image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fillustration%2Fflower-logo.html&psig=AOvVaw1GwFh_NkjsIQEzVQr1mKK3&ust=1709285679624000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPC1lsCf0IQDFQAAAAAdAAAAABAJ",
           order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
           handler: function (response: any){
-              alert(response.razorpay_payment_id);
-              alert(response.razorpay_order_id);
-              alert(response.razorpay_signature)
+              alert("Payment Done");
+              
           },
           prefill: {
               name: "Gaurav Kumar",

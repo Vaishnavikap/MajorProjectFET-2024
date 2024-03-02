@@ -1,0 +1,114 @@
+.card1 {
+    background: linear-gradient(45deg, #9db93b, #57bb8a);
+
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width:350px;
+    height:320px;
+    border-radius: 15px;
+    border: 3px solid #1db954;
+    margin-top: 100px;
+    margin-right: 20px;
+    justify-content: space-evenly;
+    
+  
+    
+}
+.card2 {
+    background: linear-gradient(45deg, #f09f77, #f74409 );
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width:350px;
+    height:320px;
+    border-radius: 15px;
+    border: 3px solid #1db954;
+    margin-top: 100px;
+    margin-right: 20px;
+    justify-content: space-evenly;
+  
+    
+}
+.card3 {
+    background: linear-gradient(45deg, #6495ed, #da70d6);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width:350px;
+    height:320px;
+    border-radius: 15px;
+    border: 3px solid #1db954;
+    margin-top: 100px;
+    margin-right: 20px;
+    justify-content: space-evenly;
+  
+    
+}
+.card1:hover {
+    box-shadow: 0 8px 16px rgba(150, 214, 136, 0.5); /* Change shadow on hover */
+}
+.card2:hover {
+    box-shadow: 0 8px 16px rgba(150, 214, 136, 0.5);  /* Change shadow on hover */
+}
+.card3:hover {
+    box-shadow: 0 8px 16px  rgba(150, 214, 136, 0.5); /* Change shadow on hover */
+}
+
+li{
+    font-size: larger;
+    margin-bottom: 8px;
+}
+
+h1{
+    color:white;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    font-weight: bold;
+    font-style: italic;
+    margin-top:60px;
+    
+    
+    
+}
+h3{
+   
+    font-style: italic;
+    font-size: 24px;
+   
+}
+body{
+    background-color: #121212;
+}
+.pay{
+    height:50px;
+    width:120px;
+    border-radius: 10px;
+    background-color: black; 
+    margin-top: 72px;
+    color:white;
+
+    
+}
+ul{
+    margin-top: 80px;
+}
+.pay:hover{
+    background-color: white;
+    color:black;
+    font-weight: bold;
+}
+
+
+.container{
+    display: flex;
+    margin-left: 100px;
+}
+
+.card h3 {
+    margin: 0;
+}
+
+
+
