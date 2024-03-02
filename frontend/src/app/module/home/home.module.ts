@@ -7,6 +7,7 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home/home.component';
 import { RouterModule } from '@angular/router';
+import { CardComponent } from './card/card.component';
 
 
 
@@ -16,13 +17,14 @@ import { RouterModule } from '@angular/router';
     TopNavComponent,
     FooterComponent,
     HomeComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     RouterModule
   ],
-  exports:[SideBarComponent,TopNavComponent, FooterComponent, HomeComponent],
+  exports:[SideBarComponent,TopNavComponent, FooterComponent, HomeComponent, CardComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule { }
