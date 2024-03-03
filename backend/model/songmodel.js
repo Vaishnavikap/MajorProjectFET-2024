@@ -16,8 +16,13 @@ const songSchema = new mongoose.Schema({
  
 });
 
-songSchema.virtual('fileUrl').get(function() {
-  return `http://localhost:3000/${this.filePath}`;
+songSchema.virtual('imageUrl').get(function() {
+
+  return `http://localhost:3000/${this.imageFilePath}`;
+});
+
+songSchema.virtual('audioUrl').get(function() {
+  return `http://localhost:3000/${this.audioFilePath}`;
 });
 
 const Song = mongoose.model('Song', songSchema);

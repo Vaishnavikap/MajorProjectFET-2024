@@ -1,5 +1,6 @@
 const multer = require('multer');
 const Song = require("../model/songmodel");
+const { response } = require('express');
 
 // Set up Multer for file uploads
 const storage = multer.diskStorage({
@@ -21,7 +22,7 @@ const upload = multer({ storage: storage });
 
 const uploadSong = async (req, res) => {
   try {
-    console.log("sf");
+  
     upload.fields([{ name: 'imageFile', maxCount: 1 }, { name: 'songFile', maxCount: 1 }])(req, res, async function (err) {
       if (err) {
         console.error('UploadError:', err);
@@ -45,6 +46,7 @@ const uploadSong = async (req, res) => {
       try {
         const result = await song.save();
         return res.status(200).json({ message: "Song uploaded successfully", data: result });
+     console.log(imageFilePath);
       } catch (error) {
         console.error('DatabaseError:', error);
         return res.status(500).json({ error: 'Error saving the song to the database.' });
@@ -77,6 +79,36 @@ const generateCustomId = async () => {
   }
 };
 
+
+
+const getAllSongs = async () => {
+  try {
+      const songs = await Song.find();
+      // Map over the songs array and add image URLs to each song object
+      const songsWithImageUrls = songs.map(song => {
+        return {
+          ...song.toObject(),
+          imageUrl: `http://localhost:3000/${song.imageFile}` // Assuming imageFile contains the path to the image
+        };
+      });
+      return songsWithImageUrls;
+  } catch (error) {
+      console.error('Error fetching songs:', error);
+      throw new Error('Error fetching songs from the database.');
+  }
+};
+const deleteSong = async (req, res) => {
+  console.log("helooooooo");
+  try {
+      const result = await Song.deleteOne({'customId': req.params.Id});
+      res.send(result);
+      console.log(req.params.Id);
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+  }
+};
+
 module.exports = {
-  uploadSong
+  uploadSong,getAllSongs,deleteSong
 };
