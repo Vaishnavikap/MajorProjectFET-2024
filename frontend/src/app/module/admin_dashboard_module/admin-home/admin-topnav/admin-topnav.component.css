@@ -1,0 +1,34 @@
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.user-info {
+    display: flex;
+    /* align-items: center; */
+    margin-left: 80%;
+}
+
+.greeting {
+    margin-right: 10px;
+}
+
+.profile-link {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.profile-link:hover {
+    color: #1db954;/* Change link color on hover */
+}
