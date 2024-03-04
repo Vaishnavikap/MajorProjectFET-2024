@@ -39,7 +39,7 @@ export class SongUploadComponent implements OnInit {
         alert('Song uploaded successfully.');
         this.uploadForm.reset();
       },
-      error => {
+      (      error: any) => {
         console.error(error);
         alert('An error occurred while uploading the song.');
       }
