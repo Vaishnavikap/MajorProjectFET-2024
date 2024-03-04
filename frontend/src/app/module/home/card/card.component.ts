@@ -23,4 +23,6 @@ export class CardComponent {
   togglePlayIcon(card: Card) {
     card.showPlayIcon = !card.showPlayIcon;
   }
+
+  
 }
