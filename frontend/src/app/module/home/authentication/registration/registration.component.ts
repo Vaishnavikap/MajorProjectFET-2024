@@ -28,9 +28,9 @@ export class RegistrationComponent {
     
   }
 
-  closeDialog() {
-    this.dialogRef.close(); // Close the dialog
-  }
+  isDialogVisible:boolean = true;
 
-  
+  closeDialog(): void {
+    this.isDialogVisible = false;
+  }
 }

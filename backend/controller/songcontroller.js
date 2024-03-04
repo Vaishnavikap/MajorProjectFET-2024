@@ -46,7 +46,7 @@ const uploadSong = async (req, res) => {
       try {
         const result = await song.save();
         return res.status(200).json({ message: "Song uploaded successfully", data: result });
-     console.log(imageFilePath);
+  
       } catch (error) {
         console.error('DatabaseError:', error);
         return res.status(500).json({ error: 'Error saving the song to the database.' });

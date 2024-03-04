@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class SongsComponent implements OnInit {
   songs: any[] = [];
   currentPage: number = 1;
-  itemsPerPage: number = 6;
+  itemsPerPage: number = 4;
 
   constructor(
     private dialog: MatDialog,
@@ -59,6 +59,8 @@ export class SongsComponent implements OnInit {
       disableClose: true,
     });
 
+ 
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       this.fetchSongs(); // Refresh songs after adding a new one
@@ -66,7 +68,7 @@ export class SongsComponent implements OnInit {
   }
 
   deleteSong(Id: Number): void {
-    this.http.delete(`http://localhost:3000/song/deleteSong/`+Id)
+    this.http.delete(`http://localhost:3000/deleteSong/`+Id)
       .subscribe(() => {
         this.fetchSongs(); // After successful deletion, refresh the song list
       });

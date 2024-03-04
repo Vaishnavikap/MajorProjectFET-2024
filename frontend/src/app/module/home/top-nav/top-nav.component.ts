@@ -14,7 +14,7 @@ export class TopNavComponent {
   openSignUpModal(): void {
     this.dialog.open(RegistrationComponent , {
       width: '50%',
-      height:'50%' // Adjust width as needed
+      height:'55%' // Adjust width as needed
     });
   }
   openLoginInModal(): void {

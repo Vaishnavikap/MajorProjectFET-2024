@@ -24,7 +24,7 @@ ex.use("/", songRouter);
 ex.use("/", roleRouter);
 ex.use("/", authRouter);
 ex.use("/",userRouter),
-
+ex.use('/uploads/images', express.static('uploads/images'));
 
 
 
