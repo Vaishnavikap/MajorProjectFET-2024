@@ -103,7 +103,8 @@ ul{
 
 .container{
     display: flex;
-    margin-left: 100px;
+    position: absolute;
+    margin-left: 150px;
 }
 
 .card h3 {
