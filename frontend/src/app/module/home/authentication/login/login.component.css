@@ -1,0 +1,96 @@
+/* Centering the content vertically and horizontally */
+.fluid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container for the content */
+.container {
+  display: flex;
+}
+
+/* Styling for the detail section */
+.detail-section {
+  background-color: #191414; /* Spotify's background color */
+  color: #fff; /* Text color for detail section */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adding shadow */
+  flex: 1; /* Occupy remaining space */
+}
+
+/* Styling for the form section */
+.form-section {
+  padding: 20px;
+  flex: 1; /* Occupy remaining space */
+}
+
+/* Styling for links */
+.links__p a {
+  color: #1db954; /* Spotify's green color */
+  text-decoration: none;
+}
+
+.links__p a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Styling for close button */
+.mat-icon-button {
+  color: #fff; /* White color */
+  background-color: transparent; /* Transparent background */
+  border: none; /* No border */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.mat-icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+  border-radius: 50%; /* Circular border */
+}
+
+/* Styling for form elements */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold; /* Bold font weight for labels */
+}
+
+input[type="email"],
+input[type="password"] {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 5px; /* Rounded corners */
+  border: 1px solid #ccc; /* Light gray border */
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #1db954; /* Green border on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Styling for error messages */
+div.error {
+  color: red; /* Red color for error messages */
+  font-size: 0.8em; /* Smaller font size */
+}
+
+/* Styling for submit button */
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #1db954; /* Spotify's green color */
+  color: #fff; /* White text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Cursor on hover */
+}
+
+button[type="submit"]:hover {
+  background-color: #1ed760; /* Lighter shade of green on hover */
+}
