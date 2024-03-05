@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SongDetailComponent } from './song-detail/song-detail.component';
 
 const routes: Routes = [
+  
   {
     path: 'home',
     loadChildren: () => import('../../module/home/home.module').then(m => m.HomeModule),
@@ -21,7 +23,8 @@ const routes: Routes = [
   {
     path: 'premium',
     loadChildren: () => import('../../module/premium/premium.module').then(m => m.PremiumModule),
-  }
+  },
+  { path: 'song/:id', component: SongDetailComponent }
   
 
 ];

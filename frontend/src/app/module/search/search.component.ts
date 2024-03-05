@@ -1,5 +1,3 @@
-// search.component.ts
-
 import { Component } from '@angular/core';
 
 @Component({

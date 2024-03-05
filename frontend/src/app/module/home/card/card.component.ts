@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SongService } from '../../../service/song.service';
+import { Router } from '@angular/router'; 
 
 interface Card {
   image: string;
@@ -13,13 +14,6 @@ interface Card {
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit{
-  // cards: Card[] = [
-  //   { image: '../../../../assets/songsimages/128Chaleya - Jawan 128 Kbps.jpg', title: 'Card Title 1', showPlayIcon: false },
-  //   { image: '../../../../assets/songsimages/128Chaleya - Jawan 128 Kbps.jpg', title: 'Card Title 2', showPlayIcon: false },
-  //   { image: '../../../../assets/songsimages/128Chaleya - Jawan 128 Kbps.jpg', title: 'Card Title 3', showPlayIcon: false },
-  //   { image: '../../../../assets/songsimages/128Chaleya - Jawan 128 Kbps.jpg', title: 'Card Title 4', showPlayIcon: false },
-  //   { image: '../../../../assets/songsimages/128Chaleya - Jawan 128 Kbps.jpg', title: 'Card Title 5', showPlayIcon: false }
-  // ];
 
   togglePlayIcon(card: Card) {
     card.showPlayIcon = !card.showPlayIcon;
@@ -27,7 +21,7 @@ export class CardComponent implements OnInit{
 
   songs: any[] = [];
 
-  constructor(private songService: SongService) {}
+  constructor(private songService: SongService, private router: Router) {}
 
   ngOnInit(): void {
     this.getSongs();
@@ -44,4 +38,15 @@ export class CardComponent implements OnInit{
       }
     );
   }
+
+  showSongDetail(selectedSong: any): void {
+    if (selectedSong && selectedSong.customId) {
+      // Navigate to the song detail page
+      this.router.navigate(['/song', selectedSong.customId]);
+    } else {
+      console.error('Invalid or missing song details:', selectedSong.customId);
+    }
+  }
+  
+
 }

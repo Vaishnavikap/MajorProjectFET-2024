@@ -14,4 +14,14 @@ export class SongService {
   getSongs(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+
+  getSongById(id: string): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<any>(url);
+  }
+
+  searchSongs(title: string, artist: string, album: string): Observable<any> {
+    const url = `${this.apiUrl}?title=${title}&artist=${artist}&album=${album}`;
+    return this.http.get(url);
+  }
 }

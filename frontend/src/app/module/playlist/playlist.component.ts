@@ -1,8 +1,8 @@
-// playlist.component.ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { CreatePlaylistModalComponent } from './create-playlist-modal/create-playlist-modal.component';
+import { PlaylistService } from '../../service/playlist.service';
 
 @Component({
   selector: 'app-playlist',
@@ -11,13 +11,19 @@ import { CreatePlaylistModalComponent } from './create-playlist-modal/create-pla
 })
 export class PlaylistComponent implements OnInit {
   songs: any[] = [];
-  playlist: any[] = [];
+  playlists: any[] = [];
   newPlaylistName: string = '';
   currentPlaylistName: string = '';
   showCreatePlaylist: boolean = false;
-  selectedSongs: Set<any> = new Set<any>(); // To store selected songs
+  selectedSongs: Set<any> = new Set<any>();
+  showAddToPlaylistButton: boolean = false; // Add this line
+  selectedSong: any; // Variable to store the selected song
 
-  constructor(private http: HttpClient, private dialog: MatDialog) {}
+  constructor(
+    private http: HttpClient,
+    private dialog: MatDialog,
+    private playlistService: PlaylistService
+  ) {}
 
   ngOnInit(): void {
     this.fetchSongs();
@@ -43,20 +49,20 @@ export class PlaylistComponent implements OnInit {
       this.selectedSongs.add(song);
     }
 
+    // Update the flag based on the selected songs
+    this.showAddToPlaylistButton = this.selectedSongs.size > 0;
     console.log('Added to playlist:', song);
   }
 
   addSelectedToPlaylist(): void {
-    // Open the modal
     const dialogRef = this.dialog.open(CreatePlaylistModalComponent, {
-      data: { selectedSongs: Array.from(this.selectedSongs) }
+      data: { selectedSongs: Array.from(this.selectedSongs) },
     });
 
-    // Subscribe to the dialog's result
     dialogRef.afterClosed().subscribe((playlistName: string) => {
       if (playlistName) {
         // Add selected songs to the playlist
-        this.playlist.push(...Array.from(this.selectedSongs).map(song => ({ ...song, playlistName })));
+        this.playlistService.addPlaylist(playlistName, Array.from(this.selectedSongs));
 
         // Clear the selected songs set after adding to the playlist
         this.selectedSongs.clear();
@@ -78,4 +84,9 @@ export class PlaylistComponent implements OnInit {
   isSongSelected(song: any): boolean {
     return this.selectedSongs.has(song);
   }
+
+  // showSelectedSongs(playlist: any): void {
+  //   // Assume the first song in the playlist is selected
+  //   this.selectedSong = playlist.songs[0];
+  // }
 }

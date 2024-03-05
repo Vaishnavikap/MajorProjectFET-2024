@@ -1,0 +1,10 @@
+<div *ngIf="song" class="song-detail-container">
+    <img [src]="song.imageUrl" alt="{{ song.title }}" class="song-detail-image">
+    <h2 class="song-detail-title">{{ song.title }}</h2>
+    <p class="song-detail-artist">{{ song.artist }}</p>
+  
+    <!-- Include your audio player component or Angular Material audio player here -->
+    <!-- For example, using Angular Material audio player -->
+    <mat-audio-player [audioUrl]="song.audioUrl" [displayTitle]="false"></mat-audio-player>
+  </div>
+  

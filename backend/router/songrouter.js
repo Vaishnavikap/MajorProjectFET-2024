@@ -1,5 +1,5 @@
 const express = require("express");
-const {uploadSong,getAllSongs,deleteSong }= require("../controller/songcontroller");
+const {uploadSong,getAllSongs,deleteSong ,getSongById}= require("../controller/songcontroller");
 const songRouter = express.Router();
 
 
@@ -25,12 +25,9 @@ const handleUploadSong = async (req, res) => {
       }
   };
   songRouter.get("/getsong", handlegettingSong);
- 
+ songRouter.get("/getSongById/:Id",getSongById)
 
 songRouter.delete('/deleteSong/:Id', deleteSong);
 
 
 module.exports = songRouter;
-
-
-

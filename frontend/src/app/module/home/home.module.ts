@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home/home.component';
 import { RouterModule } from '@angular/router';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SongDetailComponent } from './song-detail/song-detail.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     CardComponent,
+    SongDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AuthenticationModule,
     ReactiveFormsModule
   ],
-  exports:[SideBarComponent,TopNavComponent, FooterComponent, HomeComponent, CardComponent],
+  exports:[SideBarComponent,TopNavComponent, FooterComponent, HomeComponent, CardComponent, SongDetailComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule { }

@@ -1,0 +1,28 @@
+
+.playlist {
+    cursor: pointer;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .playlist:hover {
+    background-color: #f5f5f5; /* Add a hover effect for better user experience */
+  }
+  
+  .playlist h3 {
+    margin: 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 10px 0 0 20px;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  

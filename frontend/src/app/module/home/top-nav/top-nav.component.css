@@ -1,6 +1,6 @@
 .spotify-top-nav {
     flex: 1;
-    background-color: #000307;
+    background-color: #121212;
     color: #fff;
     padding: 20px;
     box-sizing: border-box;
@@ -40,7 +40,7 @@
 }
 
 .forward-btn, .backward-btn{
-  background-color:black;
+  background-color:#121212;
   color: #ffffff;
   height: 27px;
   border: none;
