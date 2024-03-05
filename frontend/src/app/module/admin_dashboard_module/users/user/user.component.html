@@ -1,0 +1,25 @@
+
+<div class="header_user">
+  
+    
+    <table class="user-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>email</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        
+        <td>   {{ user.name }}</td>
+        <td>   {{ user.email }}</td>
+        <td>{{ user.roles }}</td>
+        <td><button class="delete-button" (click)="deleteUser(user._id)"><i class="fas fa-trash"></i></button></td>
+      </tr>
+    </tbody>
+    </table>
+ 
+    

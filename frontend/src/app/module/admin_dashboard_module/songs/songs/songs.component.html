@@ -1,0 +1,31 @@
+<!-- songs.component.html -->
+<div class="header_song">
+<h2>Songs <i class="fas fa-music"></i></h2>
+<button class="add-song-button" (click)="openAddSongDialog()">
+  <i class="fas fa-plus"></i> Add Song
+</button>
+</div>
+
+<table class="song-table">
+<thead>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Artist</th>
+    <th>Action</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let song of songs">
+    <td><img [src]="song.imageUrl" alt="Song Image" class="song-image"></td>
+    <td><i class="fas fa-music"></i>     {{ song.title }}</td>
+    <td>{{ song.artist }}</td>
+    <td><button class="delete-button" (click)="deleteSong(song.customId)"><i class="fas fa-trash"></i></button></td>
+  </tr>
+</tbody>
+</table>
+<div class="pagination">
+  <button (click)="previousPage()"><</button>
+  <button *ngFor="let page of pages" (click)="goToPage(page)">{{ currentPage }}</button>
+  <button (click)="nextPage()">></button>
+</div>

@@ -1,0 +1,78 @@
+<div class="dialog-content " *ngIf="isDialogVisible">
+  <div class="fluid-container">
+      <div class="close-button-container">
+          <button class="close-button" (click)="closeDialog()">
+              <i class="fas fa-times"></i>
+          </button>
+      </div>
+
+      <div class="container">
+          <div  class=" main-section animated jackInTheBox">
+              <div class="detail-section">
+                  <div class="information">
+                      <h2 class="heading__h2">Music for everyone.</h2>
+                     
+                      <div class="little-info">
+                         
+                          <ul>
+                            <li>Personalized playlists based on your taste</li>
+                              <li>Shuffle play</li>
+                              <li>Ad Free Songs</li>
+                              <li>Play any track</li>
+                              <li>High Quality Audio</li>
+                          </ul>
+                          <span style="font-size:0.85em;">Join the music revolution today!</span>
+                          <br>
+                          <span style="font-size:0.85em;">Unleash the power of sound with us!</span>
+                      </div>
+                     
+                  </div>
+              </div>
+              <div class="form-section">
+                  <div class="form-container">
+                      <form [formGroup]="user" (ngSubmit)="registerUser()">
+                          <div>
+                              <label for="name">Name:</label>
+                              <input type="text" id="name" formControlName="name">
+                              <div *ngIf="user.get('name')?.invalid && user.get('name')?.touched">
+                                  <div *ngIf="user.get('name')?.errors?.['required']">
+                                      Name is required.
+                                  </div>
+                              </div>
+                          </div>
+                          <div>
+                              <label for="email">Email:</label>
+                              <input type="email" id="email" formControlName="email">
+                              <div *ngIf="user.get('email')?.invalid && user.get('email')?.touched">
+                                  <div *ngIf="user.get('email')?.errors?.['required']">
+                                      Email is required.
+                                  </div>
+                                  <div *ngIf="user.get('email')?.errors?.['emailPattern']">
+                                      Invalid email format. Please use an email address ending with 'gmail.com'.
+                                  </div>
+                              </div>
+                          </div>
+                          <div>
+                              <label for="password">Password:</label>
+                              <input type="password" id="password" formControlName="password">
+                              <div *ngIf="user.get('password')?.invalid && user.get('password')?.touched">
+                                  <div *ngIf="user.get('password')?.errors?.['required']">
+                                      Password is required.
+                                  </div>
+                                  <div *ngIf="user.get('password')?.errors?.['pattern']">
+                                      Password must contain at least one uppercase letter, one lowercase letter, and one symbol.
+                                  </div>
+                                  <div *ngIf="user.get('password')?.errors?.['minlength']">
+                                      Password must be at least 8 characters long.
+                                  </div>
+                              </div>
+                          </div>
+
+                          <button type="submit" [disabled]="user.invalid">Sign Up</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

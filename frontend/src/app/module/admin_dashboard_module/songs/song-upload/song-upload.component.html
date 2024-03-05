@@ -1,0 +1,17 @@
+
+<button  (click)="closeDialog()"mat-icon-button>
+  <mat-icon>close</mat-icon>
+</button>
+<form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+    <label>Title:</label><br>
+    <input type="text" formControlName="title" required><br><br>
+    <label>Artist:</label><br>
+    <input type="text" formControlName="artist" required><br><br>
+    <label>Album:</label><br>
+    <input type="text" formControlName="album" required><br><br>
+    <h1>image</h1>
+    <input type="file" (change)="onimageFileChange($event)" accept=".jpg ,.jpeg,.png" required><br><br>
+    <h1>song</h1>
+    <input type="file" (change)="onsongFileChange($event)" accept=".mp3" required><br><br>
+    <button type="submit">Upload Song</button>
+  </form>

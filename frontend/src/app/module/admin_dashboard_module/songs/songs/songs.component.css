@@ -1,0 +1,127 @@
+/* Button styles */
+.add-song-button {
+  background-color: #1db954; /* Changed to the requested color */
+  color: rgb(255, 255, 255);
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  position: absolute;
+  right: 6%;
+  top: 10%;
+  transition: background-color 0.3s ease;
+}
+
+.header-song {
+  display: flex;
+  align-items: center; /* Align items vertically */
+}
+
+.header-song h2 {
+  padding-left: 40%; /* Adjust spacing between the heading and button */
+}
+
+.add-song-button:hover {
+  background-color: #1ed760; /* Hover color remains unchanged */
+}
+
+.add-song-button i {
+  margin-right: 8px;
+}
+
+/* Table styles */
+.song-table {
+  width: 70%;
+  margin: 10% auto;
+  border-collapse: collapse;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.song-table th,
+.song-table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.song-table tbody tr:nth-child(odd) {
+  background-color: #f3f3f3;
+}
+
+.song-table th {
+  background-color: #030303;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Image styles */
+.song-image {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+/* Button styles */
+.delete-button {
+  background-color: transparent;
+  color: rgb(202, 14, 14);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Font Awesome icon */
+.delete-button i {
+  margin-right: 5px;
+}
+
+/* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  /* margin-top: 10px; */
+}
+
+.pagination button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #1ed760;
+}
+
+@media screen and (max-width: 768px) {
+  .add-song-button {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .song-table {
+    width: 90%;
+    height: 50%;
+    margin: 10% auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .add-song-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .song-table {
+    width: 100%;
+  }
+
+  .pagination button {
+    flex: 1 0 33%;
+    margin: 5px;
+  }
+}
