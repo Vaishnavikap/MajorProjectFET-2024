@@ -1,6 +1,4 @@
 
-
-
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser');
 const express = require("express");
@@ -24,7 +22,7 @@ ex.use("/", songRouter);
 ex.use("/", roleRouter);
 ex.use("/", authRouter);
 ex.use("/",userRouter),
-
+ex.use('uploads/images',express.static('uploads/images'));
 
 
 

@@ -55,7 +55,6 @@ export class SongUploadComponent implements OnInit {
   }
 
   onCancel() {
-    // Method to handle closing the form
     this.formVisible = false;
     console.log("hello")
   }

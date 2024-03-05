@@ -9,6 +9,7 @@ import {HomeModule} from './module/home/home.module';
 import { AdminHomeModule } from './module/admin_dashboard_module/admin-home/admin-home.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HomeModule,
     ReactiveFormsModule,
-    AdminHomeModule 
+    AdminHomeModule,
+    HttpClientModule
    
   ],
   providers: [

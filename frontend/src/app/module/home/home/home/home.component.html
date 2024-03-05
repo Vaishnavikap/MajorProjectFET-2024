@@ -8,8 +8,9 @@
       </div>
   
       <div class="content">
-        <app-card></app-card>
         <router-outlet></router-outlet>
+        <!-- Show app-card only if the current route is /home -->
+        <app-card *ngIf="isHomeRoute"></app-card>
       </div>
   
       <div class="footer">

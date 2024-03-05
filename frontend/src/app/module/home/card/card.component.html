@@ -6,7 +6,7 @@
     </div>
   </div>
    -->
-   <div class="card-container">
+   <!-- <div class="card-container">
     <div *ngFor="let card of cards" class="card" (mouseover)="togglePlayIcon(card)" (mouseout)="togglePlayIcon(card)">
       <img [src]="card.image" alt="Card Image" class="card-image">
       <div class="card-content">
@@ -14,7 +14,17 @@
         <div class="play-icon" *ngIf="card.showPlayIcon"><i class="fa fa-play" aria-hidden="true"></i></div>
       </div>
     </div>
+  </div> -->
+  <div class="card-container">
+    <div *ngFor="let song of songs" class="card">
+      <img [src]="song.imageUrl" alt="{{ song.title }}" class="card-image">
+      
+      <div class="card-content">
+        <h3 class="card-title">{{ song.title }}</h3>
+      </div>
+    </div>
   </div>
+ 
   
   
   

@@ -66,7 +66,7 @@ export class SongsComponent implements OnInit {
   }
 
   deleteSong(Id: Number): void {
-    this.http.delete(`http://localhost:3000/song/deleteSong/`+Id)
+    this.http.delete(`http://localhost:3000/deleteSong/`+Id)
       .subscribe(() => {
         this.fetchSongs(); // After successful deletion, refresh the song list
       });
