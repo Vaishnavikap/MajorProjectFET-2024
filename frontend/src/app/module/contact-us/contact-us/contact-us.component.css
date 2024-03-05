@@ -1,0 +1,52 @@
+/* .body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.text-danger {
+    color: red;
+} */
+
+.body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #191414; /* Spotify dark background color */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Spotify font */
+    color: white; /* Text color */
+}
+
+.form-container {
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #1DB954; /* Spotify green border color */
+    border-radius: 5px;
+    background-color: #121212; /* Spotify dark background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Spotify box shadow */
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.text-danger {
+    color: #FF4500; /* Spotify orange error color */
+}
