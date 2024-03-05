@@ -36,6 +36,7 @@ export class SongUploadComponent implements OnInit {
     formData.append('imageFile', this.imageFile);//img
     formData.append('songFile', this.songFile);//audio
    
+console.log(formData);
 
     this.songUploadService.uploadSong(formData).subscribe(
       () => {

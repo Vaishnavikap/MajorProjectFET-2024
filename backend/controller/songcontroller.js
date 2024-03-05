@@ -97,6 +97,22 @@ const getAllSongs = async () => {
       throw new Error('Error fetching songs from the database.');
   }
 };
+
+
+
+
+const getSongById = async (req, res) => {
+  try {
+    const song = await Song.findOne({'customId': req.params.Id});
+    if (!song) {
+      return res.status(404).json({ message: 'Song not found' });
+    }
+    return res.status(200).json(song);
+  } catch (error) {
+    console.error('Error fetching song:', error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
 const deleteSong = async (req, res) => {
   console.log("helooooooo");
   try {
@@ -110,5 +126,5 @@ const deleteSong = async (req, res) => {
 };
 
 module.exports = {
-  uploadSong,getAllSongs,deleteSong
+  uploadSong,getAllSongs,deleteSong,getSongById
 };
