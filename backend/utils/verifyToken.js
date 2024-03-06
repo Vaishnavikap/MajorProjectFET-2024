@@ -14,8 +14,8 @@ const verifyToken = (req, res, next) => {
   try {
       // Verify the token
       const decoded = jwt.verify(token, 'thesecreatkey');
-      req.user = decoded; // Set the decoded user information in the request object
-      next(); // Move to the next middleware
+      req.user = decoded; 
+      next(); 
   } catch (error) {
       return res.status(400).json({ message: 'Invalid token.' });
   }

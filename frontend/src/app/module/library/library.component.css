@@ -1,28 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.playlist {
-    cursor: pointer;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .playlist:hover {
-    background-color: #f5f5f5; /* Add a hover effect for better user experience */
-  }
-  
-  .playlist h3 {
-    margin: 0;
-  }
-  
-  ul {
-    list-style-type: none;
-    margin: 10px 0 0 20px;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 5px;
-  }
-  
+.card-1, .card-2 {
+  width: 300px;
+  height: 200px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 20px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.card-1:hover, .card-2:hover {
+  transform: scale(1.05);
+}
+
+.card-title {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.card-1 {
+  background-color: #ffc107; 
+}
+
+.card-2 {
+  background-color: #4caf50; 
+  color: #fff;
+}

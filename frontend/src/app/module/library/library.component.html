@@ -1,8 +1,18 @@
-<!-- library.component.html -->
-<h2>Your Playlists</h2>
-<div *ngFor="let playlist of playlists" class="playlist" (click)="showSelectedSongs(playlist)">
-    <h3>{{ playlist.name }}</h3>
-    <ul *ngIf="selectedPlaylist === playlist">
-      <li *ngFor="let song of playlist.songs">{{ song.title }} - {{ song.artist }}</li>
-    </ul>
+<div class="container">
+  <div class="card-1" (click)="showMyPlaylists()" routerLink="/library/all-playlist" >
+      <h3 class="card-title">My Playlists</h3>
+      <div *ngIf="selectedPlaylist">
+          <h3>{{ selectedPlaylist.name }}</h3>
+          <ul>
+              <li *ngFor="let song of selectedPlaylist.songs">{{ song.title }}</li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="card-2">
+      <h3 class="card-title">Liked Songs</h3>
+      <!-- Display liked songs here -->
+  </div>
+
+  <router-outlet></router-outlet>
 </div>

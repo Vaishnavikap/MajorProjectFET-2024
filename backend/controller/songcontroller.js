@@ -61,17 +61,13 @@ const uploadSong = async (req, res) => {
 // Function to generate customId
 const generateCustomId = async () => {
   try {
-    // Find the highest existing customId
     const highestExistingCustomIdSong = await Song.findOne().sort({ customId: -1 });
-
-    // Increment the highest existing customId by 1 or start from 1 if no song exists
     let newCustomId;
     if (highestExistingCustomIdSong && highestExistingCustomIdSong.customId) {
       newCustomId = highestExistingCustomIdSong.customId + 1;
     } else {
       newCustomId = 1;
     }
-
     return newCustomId;
   } catch (error) {
     console.error('Error generating customId:', error);

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PlaylistService } from '../../service/playlist.service';
 
 @Component({
@@ -6,22 +7,31 @@ import { PlaylistService } from '../../service/playlist.service';
   templateUrl: './library.component.html',
   styleUrls: ['./library.component.css']
 })
-export class LibraryComponent {
+export class LibraryComponent implements OnInit {
   playlists: any[] = [];
   selectedPlaylist: any = null;
 
-  constructor(private playlistService: PlaylistService) {}
+  constructor(private playlistService: PlaylistService, private router: Router) { }
 
   ngOnInit(): void {
-    this.fetchPlaylists();
+    this.loadPlaylists();
   }
 
-  fetchPlaylists(): void {
-
-    this.playlists = this.playlistService.getPlaylists();
+  loadPlaylists(): void {
+    this.playlistService.getPlaylists().subscribe(
+      playlists => {
+        this.playlists = playlists;
+      },
+      error => {
+        console.error('Error fetching playlists:', error);
+        // Handle error
+      }
+    );
   }
 
-  showSelectedSongs(playlist: any): void {
-    this.selectedPlaylist = this.selectedPlaylist === playlist ? null : playlist;
+  showMyPlaylists(): void {
+    // Navigate to the 'All Playlist' page
+    this.router.navigate(['/library/all-playlist']);
   }
+
 }

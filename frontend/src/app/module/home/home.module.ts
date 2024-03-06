@@ -9,7 +9,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeComponent } from './home/home/home.component';
 import { RouterModule } from '@angular/router';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SongDetailComponent } from './song-detail/song-detail.component';
 
 
@@ -27,7 +27,8 @@ import { SongDetailComponent } from './song-detail/song-detail.component';
     HomeRoutingModule,
     RouterModule,
     AuthenticationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[SideBarComponent,TopNavComponent, FooterComponent, HomeComponent, CardComponent, SongDetailComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
