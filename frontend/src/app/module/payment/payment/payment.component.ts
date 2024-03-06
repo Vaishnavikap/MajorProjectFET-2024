@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environment/environment';
 
-// Declare Razorpay to inform TypeScript of its existence
-declare const Razorpay: any;
-
+declare const Razorpay:any;
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent implements OnInit {
+
+
+export class PaymentComponent {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
@@ -30,52 +30,38 @@ export class PaymentComponent implements OnInit {
   }
 
   makePayment(amount: number) {
-    this.http.post<any>(`${environment.backendUrl}/create-order`, { amount }).subscribe({
+    this.http.post(`${environment.backendUrl}/create-order`, { amount }).subscribe({
       next: (order: any) => {
         const options = {
           key: environment.razorpayKeyId,
           amount: order.amount,
           currency: "INR",
-          name: "Subscription Name",
+          name: "SpotifyTune Subscribtion",
           description: "Test Transaction",
-          image: "https://example.com/your_logo.png", // Update the image URL
-          order_id: order.id,
-          handler: (response: any) => {
-            console.log(response);
-            alert("Payment Successful");
+          image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dreamstime.com%2Fillustration%2Fflower-logo.html&psig=AOvVaw1GwFh_NkjsIQEzVQr1mKK3&ust=1709285679624000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPC1lsCf0IQDFQAAAAAdAAAAABAJ",
+          order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+          handler: function (response: any){
+              alert("Payment Done");
+              
           },
           prefill: {
-            name: "John Doe",
-            email: "john.doe@example.com",
-            contact: "9999999999"
+              name: "Gaurav Kumar",
+              email: "gaurav.kumar@example.com",
+              contact: "9307864263",
+          
+            
           },
           notes: {
-            address: "Corporate Office"
+              address: "Razorpay Corporate Office"
           },
           theme: {
             color: "#F37254"
           }
         };
-
-        // Ensure Razorpay is defined before using it
-        if (typeof Razorpay !== 'undefined') {
-          const rzp1 = new Razorpay(options);
-          rzp1.on('payment.failed', function (response: any) {
-            console.error(response.error.code);
-            console.error(response.error.description);
-            console.error(response.error.source);
-            console.error(response.error.step);
-            console.error(response.error.reason);
-            console.error(response.error.metadata.order_id);
-            console.error(response.error.metadata.payment_id);
-            alert("Payment Failed");
-          });
-          rzp1.open();
-        } else {
-          console.error('Razorpay SDK not loaded.');
-        }
+        const rzp1 = new Razorpay(options);
+        rzp1.open();
       },
       error: (error) => console.error('Error creating order:', error)
     });
   }
-}
+}//configuring the ayment details here where 
