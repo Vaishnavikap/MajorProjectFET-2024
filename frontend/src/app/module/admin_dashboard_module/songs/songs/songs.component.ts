@@ -12,7 +12,7 @@ export class SongsComponent implements OnInit {
   songs: any[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 3;
-  totalPages: number=20;
+  totalPages: number=0;
 
   constructor(
     private dialog: MatDialog,
@@ -29,6 +29,7 @@ export class SongsComponent implements OnInit {
     this.http.get<any[]>('http://localhost:3000/getsong')
       .subscribe(songs => {
         this.songs = songs.slice(startIndex, endIndex);
+        this.totalPages = Math.ceil(songs.length / this.itemsPerPage);
       });
   }
 
@@ -72,7 +73,7 @@ export class SongsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.fetchSongs(); // Refresh songs after adding a new one
+      this.fetchSongs(); 
     });
   }
 

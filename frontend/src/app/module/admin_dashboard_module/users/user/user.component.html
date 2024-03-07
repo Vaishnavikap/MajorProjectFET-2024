@@ -21,10 +21,9 @@
         <td>{{ user.isAdmin ? 'Admin' : 'User'}}</td>
        
         <td>
-            <!-- <button class="edit-button">
-                
-                <i class="fas fa-edit" (click)="openEditDailog"></i> 
-              </button> -->
+          <button class="details-button" (click)="openDetailsDialog(user)">
+            <i class="fas fa-info"></i> 
+          </button> 
             <button class="delete-button" (click)="deleteUser(user._id)"><i class="fas fa-trash"></i></button></td>
       </tr>
     </tbody>

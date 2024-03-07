@@ -76,3 +76,12 @@
 .edit-button i {
     margin-right: 5px; 
 }
+.details-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.details-button .fas {
+  color: #000; /* Change color to match your design */
+}

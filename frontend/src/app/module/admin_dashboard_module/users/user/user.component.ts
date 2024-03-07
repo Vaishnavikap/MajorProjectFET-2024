@@ -1,36 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import { EditUserComponent } from '../edit-user/edit-user.component';
 import { MatDialog } from '@angular/material/dialog';
+import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-  
-  
-
-  constructor(
-    
-    private dialog: MatDialog,
-    private http: HttpClient) { }
   users: any[] = [];
-  currentPage: number = 1;
-  itemsPerPage: number = 7;
-  totalPages: number=20;
+
+  constructor(private dialog: MatDialog, private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.fetchUsers()
+    this.fetchUsers();
   }
 
-  fetchUsers(): void {  
-    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-    const endIndex = startIndex + this.itemsPerPage;
+  fetchUsers(): void {
     this.http.get<any[]>('http://localhost:3000/user')
       .subscribe(users => {
-        this.users = users.slice(startIndex, endIndex);
+        this.users = users;
       });
   }
 
@@ -44,22 +34,19 @@ export class UserComponent implements OnInit {
         (error) => {
           console.error('Error deleting user:', error);
         }
-        );
-    
+      );
   }
 
+  openDetailsDialog(user: any): void {
+    // Open a Material dialog with the user details
+    const dialogRef = this.dialog.open(UserDetailComponent, {
+      data: { user }, 
+      width: '400px'
+    });
 
-  // openEditDailog(){
-  //   const dialogRef = this.dialog.open(EditUserComponent , {
-  //     width: '400px',
-  //     disableClose: true,
-  //   });
-  // }
-
-
-
-
-
-
-
+    // Handle dialog close event (if needed)
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The details dialog was closed');
+    });
+  }
 }
