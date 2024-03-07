@@ -1,0 +1,35 @@
+/* artist-songs.component.css */
+
+.artist-songs-container {
+    margin-top: 20px;
+}
+
+.song {
+    display: flex;
+    flex-direction: row; /* Display songs in a row */
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.song-details {
+    flex: 1;
+    text-align: left;
+}
+
+.song-image {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    margin-right: 10px;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+}
+
+.song-title {
+    font-weight: bold;
+}
+
+.song-subtitle {
+    color: #777;
+}

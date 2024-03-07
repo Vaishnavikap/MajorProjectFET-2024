@@ -63,4 +63,9 @@ export class PlaylistService {
       })
     );
   }
+
+  getArtistSongs(artist: string): Observable<any[]> {
+    const url = `${this.apiUrl}/getSongByArtist/${artist}`;
+    return this.http.get<any[]>(url);
+  }
 }

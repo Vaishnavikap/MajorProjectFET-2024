@@ -4,6 +4,6 @@ const { createPlaylist, getAllPlaylists, getPlaylistById } = require('../control
 
 playlistRouter.post('/playlist', createPlaylist);
 playlistRouter.get('/playlists', getAllPlaylists);
-playlistRouter.get('/playlist/:playlistId', getPlaylistById); // New route for getPlaylistById
+playlistRouter.get('/playlist/:playlistId', getPlaylistById); 
 
 module.exports = playlistRouter;

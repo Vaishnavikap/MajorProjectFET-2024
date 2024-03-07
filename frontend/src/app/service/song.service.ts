@@ -24,6 +24,8 @@ export class SongService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
+ 
+
   getSongDetails(searchTerm: string): Observable<any> {
     // Append the search term to the API endpoint
     const url = `${this.apiUrl}?search=${searchTerm}`;

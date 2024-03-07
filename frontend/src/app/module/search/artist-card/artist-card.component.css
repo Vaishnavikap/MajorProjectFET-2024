@@ -1,8 +1,11 @@
 /* artist-card.component.css */
+.main-artist-container{
 
+}
 .artist-container {
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: column;
+    border: 2px solid red; */
   }
   
   .artist-card {

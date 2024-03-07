@@ -1,12 +1,8 @@
 /* search.component.css */
-
-.category-container {
+.artist-cards-container{
+ 
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  /* justify-content:space-between; */
 }
 
-app-category-card {
-  flex-basis: calc(28% - 35px); /* 10px is for margin/padding between cards */
-  margin: 10px; /* Adjust as needed for spacing between cards */
-}

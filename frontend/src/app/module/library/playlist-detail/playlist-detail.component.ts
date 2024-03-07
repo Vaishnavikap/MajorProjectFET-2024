@@ -12,9 +12,12 @@ import { PlaylistService } from '../../../service/playlist.service';
 export class PlaylistDetailComponent implements OnInit {
   playlist: any = {};
 
-  constructor(private route: ActivatedRoute, private playlistService: PlaylistService) {}
 
+  
+  constructor(private route: ActivatedRoute, private playlistService: PlaylistService) {}
+ 
   ngOnInit(): void {
+ 
     this.route.params.subscribe(params => {
       const playlistId = +params['playlistId']; // Use the unary plus operator to convert to a number
       
@@ -30,5 +33,6 @@ export class PlaylistDetailComponent implements OnInit {
         );
       }
     });
+    console.log(this.playlist);
   }
 }

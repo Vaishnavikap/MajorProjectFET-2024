@@ -18,9 +18,9 @@ const generatePlaylistId = async () => {
   
   const createPlaylist = async (req, res) => {
     try {
-      const { name, songs } = req.body;
+      const { name, songs, artist, album, imageFile, audioFile } = req.body;
       const playlistId = await generatePlaylistId(); // Use the generated playlistId
-      const playlist = new Playlist({ playlistId, name, songs });
+      const playlist = new Playlist({ playlistId, name, songs,  artist, album, imageFile, audioFile});
       const savedPlaylist = await playlist.save();
       res.json(savedPlaylist);
     } catch (error) {
