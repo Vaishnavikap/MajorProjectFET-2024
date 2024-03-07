@@ -13,9 +13,12 @@ const Token = require("../model/usertoken");
  const register = async (req, res, next) => {
   const role = await Role.find({ role: 'User' });
   const salt = await bcrypt.genSalt(10);
-  const hashPassword = await bcrypt.hash(req.body.password, salt)
+  const hashPassword = await bcrypt.hash(req.body.password, salt);
+  const userId= await generateuserId();
   const newUser = new User({
-   name: req.body.name,
+userId,
+    FirstName: req.body.FirstName,
+    LastName: req.body.LastName,
     email: req.body.email,
     password: hashPassword,
     roles: role
@@ -26,21 +29,20 @@ const Token = require("../model/usertoken");
 const registerAdmin = async (req, res, next) => {
   try {
     console.log("Starting registerAdmin function...");
-
     const role = await Role.find({});
     console.log("Retrieved roles:", role);
-
     const salt = await bcrypt.genSalt(10);
     if (!salt) {
       throw new Error('Failed to generate salt');
     }
     console.log("Generated salt:", salt);
-
     const hashPassword = await bcrypt.hash(req.body.password || '', salt);
     console.log("Hashed password:", hashPassword);
-
+    const userId= await generateuserId();
     const newUser = new User({
-      name: req.body.name,
+      userId,
+      FirstName: req.body.FirstName,
+      LastName: req.body.LastName,
       email: req.body.email,
       password: hashPassword,
       isAdmin: true,
@@ -115,6 +117,25 @@ const login = async (req, res, next) => {
     return res.status(500).send("Internal Server Error");
   }
 };
+
+
+
+const generateuserId = async () => {
+  try {
+    const highestExistingUser = await User.findOne().sort({ userId: -1 });
+    let newUserId;
+    if (highestExistingUser && highestExistingUser.userId) {
+      newUserId = highestExistingUser.userId + 1;
+    } else {
+      newUserId = 1;
+    }
+    return newUserId;
+  } catch (error) {
+    console.error('Error generating userId:', error);
+    throw new Error('Error generating userId');
+  }
+};
+;
 
 
 module.exports={login,register,registerAdmin

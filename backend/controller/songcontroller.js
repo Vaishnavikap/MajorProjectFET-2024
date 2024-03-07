@@ -61,17 +61,13 @@ const uploadSong = async (req, res) => {
 // Function to generate customId
 const generateCustomId = async () => {
   try {
-    // Find the highest existing customId
     const highestExistingCustomIdSong = await Song.findOne().sort({ customId: -1 });
-
-    // Increment the highest existing customId by 1 or start from 1 if no song exists
     let newCustomId;
     if (highestExistingCustomIdSong && highestExistingCustomIdSong.customId) {
       newCustomId = highestExistingCustomIdSong.customId + 1;
     } else {
       newCustomId = 1;
     }
-
     return newCustomId;
   } catch (error) {
     console.error('Error generating customId:', error);
@@ -113,6 +109,24 @@ const getSongById = async (req, res) => {
     return res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+
+
+
+
+const getSongByArtist = async (req, res) => {
+  try {
+    const songs = await Song.find({ 'artist': req.params.artist });
+    if (songs.length === 0) {
+      return res.status(404).json({ message: 'No songs found for this artist' });
+    }
+    return res.status(200).json(songs);
+  } catch (error) {
+    console.error('Error fetching songs by artist:', error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
+
 const deleteSong = async (req, res) => {
   console.log("helooooooo");
   try {
@@ -126,5 +140,5 @@ const deleteSong = async (req, res) => {
 };
 
 module.exports = {
-  uploadSong,getAllSongs,deleteSong,getSongById
+  uploadSong,getAllSongs,deleteSong,getSongById, getSongByArtist 
 };

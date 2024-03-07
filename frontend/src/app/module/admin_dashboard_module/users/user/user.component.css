@@ -1,10 +1,9 @@
-/* Header styles */
+
 .header-user {
     display: flex;
     align-items: center;
   }
   
-  /* Table styles */
   .user-table {
     width: 70%;
     margin: 10% auto;
@@ -28,7 +27,7 @@
     color: #fff;
   }
   
-  /* Button styles */
+
   .delete-button {
     background-color: transparent;
     color: rgb(202, 14, 14);
@@ -37,12 +36,12 @@
     cursor: pointer;
   }
   
-  /* Font Awesome icon */
+
   .delete-button i {
     margin-right: 5px;
   }
   
-  /* Pagination styles */
+
   .pagination {
     display: flex;
     justify-content: center;
@@ -63,4 +62,17 @@
   .pagination button:hover {
     background-color: #1ed760;
   }
+  .edit-button {
+    background-color: transparent;
+    color: #0e0e0e; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    outline: none; 
   
+}
+
+.edit-button i {
+    margin-right: 5px; 
+}

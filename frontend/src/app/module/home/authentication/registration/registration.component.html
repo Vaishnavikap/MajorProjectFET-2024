@@ -32,14 +32,23 @@
                   <div class="form-container">
                       <form [formGroup]="user" (ngSubmit)="registerUser()">
                           <div>
-                              <label for="name">Name:</label>
-                              <input type="text" id="name" formControlName="name">
-                              <div *ngIf="user.get('name')?.invalid && user.get('name')?.touched">
-                                  <div *ngIf="user.get('name')?.errors?.['required']">
-                                      Name is required.
+                              <label for="name">FistName:</label>
+                              <input type="text" id="FirstName" formControlName="FirstName">
+                              <div *ngIf="user.get('FirstName')?.invalid && user.get('FirstName')?.touched">
+                                  <div *ngIf="user.get('FirstName')?.errors?.['required']">
+                                      FirstName is required.
                                   </div>
                               </div>
                           </div>
+                          <div>
+                            <label for="name">LastName:</label>
+                            <input type="text" id="LastName" formControlName="LastName">
+                            <div *ngIf="user.get('LastName')?.invalid && user.get('LastName')?.touched">
+                                <div *ngIf="user.get('LastName')?.errors?.['required']">
+                                 LastName is required.
+                                </div>
+                            </div>
+                        </div>
                           <div>
                               <label for="email">Email:</label>
                               <input type="email" id="email" formControlName="email">

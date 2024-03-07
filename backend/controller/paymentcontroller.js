@@ -37,4 +37,4 @@ exports.createOrder = async (req, res) => {
     console.error('Error creating Razorpay order:', error);
     res.status(error.statusCode || 500).send({ error: error.message });
   }
-};
+};2

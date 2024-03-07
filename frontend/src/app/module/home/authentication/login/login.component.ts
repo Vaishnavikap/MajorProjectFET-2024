@@ -4,7 +4,7 @@ import { RegistrationComponent } from '../registration/registration.component';
 import { UserRegistrationService } from '../../../../service/user-registration.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router'; 
-import { log } from 'console';
+
 
 @Component({
   selector: 'app-login',
@@ -12,6 +12,7 @@ import { log } from 'console';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+ isAdmin= false;
   private dialogRef!: MatDialogRef<RegistrationComponent>;
 
   constructor(private service: UserRegistrationService, private router: Router) { }
@@ -29,16 +30,20 @@ export class LoginComponent {
         console.log("Role:", response.roles);
         
       }
-      debugger;
+    
+    
+  
       // Check if the response contains the role property and if it includes 'Admin'
       if (response.roles.includes('Admin')) {
       
         console.log("admin login");
-        this.router.navigate(['/admin-dashboard']); // Redirect to admin dashboard
+        this.router.navigate(['/admin']); // Redirect to admin dashboard
       } else {
         console.log("user login");
         this.router.navigate(['/home']); // Redirect to home page
       }
+
+
     });
   }
 
