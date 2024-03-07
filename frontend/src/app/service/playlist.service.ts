@@ -53,4 +53,14 @@ export class PlaylistService {
       })
     );
   }
+
+  getPlaylistById(playlistId: number): Observable<any> {
+    const url = `${this.apiUrl}/playlist/${playlistId}`;
+    return this.http.get<any>(url).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error fetching playlist by ID:', error);
+        return throwError('Something went wrong while fetching the playlist.');
+      })
+    );
+  }
 }

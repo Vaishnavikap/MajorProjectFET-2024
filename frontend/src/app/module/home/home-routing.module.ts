@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SongDetailComponent } from './song-detail/song-detail.component';
 import { AllPlaylistsComponent } from '../library/all-playlists/all-playlists.component';
+import { SearchResultComponent } from '../search/search-result/search-result.component';
+import { PlaylistDetailComponent } from '../library/playlist-detail/playlist-detail.component';
+import { ArtistSongsComponent } from '../search/artist-songs/artist-songs.component';
 
 const routes: Routes = [
   
@@ -26,7 +29,10 @@ const routes: Routes = [
     loadChildren: () => import('../../module/premium/premium.module').then(m => m.PremiumModule),
   },
   { path: 'song/:id', component: SongDetailComponent },
-  { path: 'library/all-playlist', component: AllPlaylistsComponent } 
+  { path: 'library/all-playlist', component: AllPlaylistsComponent },
+  { path: 'search-results', component: SearchResultComponent },
+  { path: 'playlist/:playlistId', component: PlaylistDetailComponent },
+  { path: 'artist-songs/:artist', component: ArtistSongsComponent },
   
 
 ];

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-search',
@@ -6,6 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
-  categories: string[] = ['Hindi', 'Rock', 'Pop', 'Jazz', 'Hip-Hop', 'Classical', 'Love', 'Party'];
+  artists: string[] = ['Arijit Singh', 'Amit Trivedi', 'Armaan Malik'];
 
+  constructor(private router: Router) {}
+
+  viewSongsByArtist(artist: string): void {
+    this.router.navigate(['/artist-songs', artist]);
+}
 }

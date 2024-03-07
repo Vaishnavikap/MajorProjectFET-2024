@@ -1,4 +1,4 @@
-<div class="category-container">
-    <app-category-card *ngFor="let category of categories" [category]="category"></app-category-card>
+<div class="artist-cards-container">
+    <app-artist-card *ngFor="let artist of artists" [artist]="artist" (viewSongs)="viewSongsByArtist($event)"></app-artist-card>
 </div>
   

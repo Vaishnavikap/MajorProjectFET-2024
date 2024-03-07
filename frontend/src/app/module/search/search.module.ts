@@ -3,20 +3,26 @@ import { CommonModule } from '@angular/common';
 
 import { SearchRoutingModule } from './search-routing.module';
 import { SearchComponent } from './search.component';
-import { CategoryCardComponent } from './category-card/category-card.component';
 import { FormsModule } from '@angular/forms';
+import { SearchResultComponent } from './search-result/search-result.component';
+import { ArtistCardComponent } from './artist-card/artist-card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ArtistSongsComponent } from './artist-songs/artist-songs.component';
 
 
 @NgModule({
   declarations: [
     SearchComponent,
-    CategoryCardComponent
+    SearchResultComponent,
+    ArtistCardComponent,
+    ArtistSongsComponent
   ],
   imports: [
     CommonModule,
     SearchRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  exports:[SearchComponent, CategoryCardComponent]
+  exports:[SearchComponent, ArtistCardComponent]
 })
 export class SearchModule { }

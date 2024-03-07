@@ -1,17 +1,16 @@
-// all-playlists.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from '../../../service/playlist.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-playlists',
   templateUrl: './all-playlists.component.html',
-  styleUrls: ['./all-playlists.component.css'] // Link the CSS file
+  styleUrls: ['./all-playlists.component.css'] 
 })
 export class AllPlaylistsComponent implements OnInit {
   playlists: any[] = [];
 
-  constructor(private playlistService: PlaylistService) { }
+  constructor(private playlistService: PlaylistService, private router: Router ) { }
 
   ngOnInit(): void {
     this.playlistService.getPlaylists().subscribe(
@@ -30,4 +29,8 @@ export class AllPlaylistsComponent implements OnInit {
     playlist.showSongs = !playlist.showSongs;
   }
   
+  navigateToDetail(playlist: any): void {
+    console.log('Selected Playlist:', playlist);
+    this.router.navigate(['/playlist', playlist.playlistId]);
+  }
 }

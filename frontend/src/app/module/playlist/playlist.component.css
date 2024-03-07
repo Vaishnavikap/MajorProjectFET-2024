@@ -17,14 +17,20 @@
     margin: 0;
   }
   
-  .add-to-playlist-button {
+  .add-button {
     cursor: pointer;
-    background-color: #4caf50;
+    background-color: #4CAF50;
     color: white;
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
-  }
+    margin-left: auto; 
+    height:30px/* Push the button to the right side of the song row */
+}
+
+.add-button:hover {
+    background-color: #45a049;
+}
   
   .playlist {
     margin-top: 20px;
@@ -78,14 +84,22 @@
     color: white;
   }
 
-.song {
+  .song {
     display: flex;
-    flex-direction: row; /* Change from column to row */
+    align-items: center; /* Align items vertically in the middle */
+    justify-content: space-between; /* Distribute space between items horizontally */
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
     box-sizing: border-box;
     margin-bottom: 10px;
+}
+
+.song-image {
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Adjust the size as needed */
+  margin-right: 10px;
+  object-fit: cover; /* Ensures the image maintains its aspect ratio */
 }
 
 .add-button {

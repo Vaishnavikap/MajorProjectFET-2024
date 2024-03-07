@@ -38,7 +38,23 @@ const getAllPlaylists = async (req, res) => {
   }
 };
 
+const getPlaylistById = async (req, res) => {
+  const { playlistId } = req.params;
+
+  try {
+    const playlist = await Playlist.findOne({ playlistId: parseInt(playlistId) });
+    if (!playlist) {
+      return res.status(404).json({ message: 'Playlist not found' });
+    }
+    res.status(200).json(playlist);
+  } catch (error) {
+    console.error('Error fetching playlist:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
 module.exports = {
     createPlaylist,
-    getAllPlaylists
+    getAllPlaylists,
+    getPlaylistById
 };
