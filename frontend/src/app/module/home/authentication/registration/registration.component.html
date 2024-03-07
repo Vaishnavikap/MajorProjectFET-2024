@@ -1,10 +1,13 @@
-<div class="dialog-content " *ngIf="isDialogVisible">
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
+<div class="dialog-content " >
   <div class="fluid-container">
-      <div class="close-button-container">
+      <!-- <div class="close-button-container">
           <button class="close-button" (click)="closeDialog()">
               <i class="fas fa-times"></i>
           </button>
-      </div>
+      </div> -->
 
       <div class="container">
           <div  class=" main-section animated jackInTheBox">

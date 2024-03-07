@@ -60,9 +60,10 @@ console.log(formData);
   }
 
  
-  closeDialog(dialogResult: any = null): void {
-    this.dialogRef.close(dialogResult);
+  closeDialog() {
+    this.dialogRef.close(); // Close the dialog
   }
+
 }
 
  
