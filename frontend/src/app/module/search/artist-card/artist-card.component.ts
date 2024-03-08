@@ -17,6 +17,6 @@ export class ArtistCardComponent {
   }
 
   viewArtistSongs(artist: string): void {
-    this.router.navigate(['content/artist-songs', artist]);
+    this.router.navigate(['home/artist-songs', artist]);
   }
 }

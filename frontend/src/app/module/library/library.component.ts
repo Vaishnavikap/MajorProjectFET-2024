@@ -31,7 +31,7 @@ export class LibraryComponent implements OnInit {
 
   showMyPlaylists(): void {
     // Navigate to the 'All Playlist' page
-    this.router.navigate(['/content/library/all-playlist']);
+    this.router.navigate(['/home/library/all-playlist']);
   }
 
 }

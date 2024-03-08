@@ -56,7 +56,7 @@ export class TopNavComponent implements OnInit {
       );
 
       // Navigate to the search results page with results as parameters
-      this.router.navigate(['content/search-results'], { queryParams: { results: JSON.stringify(this.searchResults) } });
+      this.router.navigate(['home/search-results'], { queryParams: { results: JSON.stringify(this.searchResults) } });
     });
   }
 

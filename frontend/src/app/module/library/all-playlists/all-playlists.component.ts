@@ -31,6 +31,6 @@ export class AllPlaylistsComponent implements OnInit {
   
   navigateToDetail(playlist: any): void {
     console.log('Selected Playlist:', playlist);
-    this.router.navigate(['/content//playlist', playlist.playlistId]);
+    this.router.navigate(['/home//playlist', playlist.playlistId]);
   }
 }
