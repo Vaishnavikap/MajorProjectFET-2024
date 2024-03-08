@@ -18,6 +18,8 @@ export class TopNavComponent implements OnInit {
 
   searchResults: any[] = [];
 
+  noDataFoundMessage: string = '';
+
   constructor(private dialog: MatDialog, private router: Router, private searchService: SearchService, private activatedRoute: ActivatedRoute) {}
 
   openSignUpModal(): void {
@@ -54,6 +56,9 @@ export class TopNavComponent implements OnInit {
       this.searchResults = allResults.filter(result =>
         this.matchSearchQuery(result, query)
       );
+
+      this.noDataFoundMessage = this.searchResults.length === 0 ? 'No data found.' : '';
+ 
 
       // Navigate to the search results page with results as parameters
       this.router.navigate(['home/search-results'], { queryParams: { results: JSON.stringify(this.searchResults) } });

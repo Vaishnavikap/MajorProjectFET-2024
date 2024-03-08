@@ -68,4 +68,6 @@ export class PlaylistService {
     const url = `${this.apiUrl}/getSongByArtist/${artist}`;
     return this.http.get<any[]>(url);
   }
+  
+  
 }

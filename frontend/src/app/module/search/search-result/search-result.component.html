@@ -1,5 +1,4 @@
-
-<div>
+<!-- <div>
     <h2>Top Search</h2>
     <div class="song" *ngFor="let result of results">
         <div class="song-details">
@@ -11,4 +10,22 @@
         </div>
         <button class="play-button">Play</button>
     </div>
+</div> -->
+<div>
+    <h2>Top Search</h2>
+    <div *ngIf="results.length > 0; else noResultsMessage">
+        <div class="song" *ngFor="let result of results">
+            <div class="song-details">
+                <img class="song-image" [src]="result.imageUrl" alt="Song Image">
+                <div class="song-info">
+                    <div class="song-title">{{ result.title }}</div>
+                    <div class="song-subtitle">{{ result.artist }} - {{ result.album }}</div>
+                </div>
+            </div>
+            <button class="play-button">Play</button>
+        </div>
+    </div>
+    <ng-template #noResultsMessage>
+        <p>No results found.</p>
+    </ng-template>
 </div>

@@ -1,4 +1,4 @@
-<!-- create-playlist-modal.component.html -->
+<!-- create-playlist-modal.component.html
 <div class="modal-content">
     <h1 mat-dialog-title>Create Playlist</h1>
     <div mat-dialog-content>
@@ -18,4 +18,24 @@
       <button mat-button (click)="dialogRef.close()">Cancel</button>
     </div>
   </div>
-  
+   -->
+   <!-- create-playlist-modal.component.html -->
+<div class="modal-content">
+  <h1 mat-dialog-title>Create Playlist</h1>
+  <div mat-dialog-content>
+    <div>
+      <label for="playlistName">Playlist Name:</label>
+      <input type="text" id="playlistName" [(ngModel)]="playlistName" class="form-control">
+    </div>
+    <div class="selected-songs">
+      <h5>Selected Songs:</h5>
+      <ul>
+        <li *ngFor="let song of data.selectedSongs">{{ song.title }} - {{ song.artist }}</li>
+      </ul>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onPlaylistCreate()">Create Playlist</button>
+    <button mat-button (click)="dialogRef.close()">Cancel</button>
+  </div>
+</div>
