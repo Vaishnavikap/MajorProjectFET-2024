@@ -5,12 +5,22 @@ import { AllPlaylistsComponent } from '../library/all-playlists/all-playlists.co
 import { SearchResultComponent } from '../search/search-result/search-result.component';
 import { PlaylistDetailComponent } from '../library/playlist-detail/playlist-detail.component';
 import { ArtistSongsComponent } from '../search/artist-songs/artist-songs.component';
+import { HomeComponent } from './home/home/home.component';
 
-const routes: Routes = [
   
+const routes: Routes = [
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   {
-    path: 'home',
-    loadChildren: () => import('../../module/home/home.module').then(m => m.HomeModule),
+    path: 'content',
+    children: [
+      { path: '', loadChildren: () => import('../../module/home/home.module').then(m => m.HomeModule) },
+      { path: 'song/:id', component: SongDetailComponent },
+      { path: 'library/all-playlist', component: AllPlaylistsComponent },
+      { path: 'search-results', component: SearchResultComponent },
+      { path: 'playlist/:playlistId', component: PlaylistDetailComponent },
+      { path: 'artist-songs/:artist', component: ArtistSongsComponent },
+    ]
   },
   {
     path: 'search',
@@ -28,13 +38,11 @@ const routes: Routes = [
     path: 'premium',
     loadChildren: () => import('../../module/premium/premium.module').then(m => m.PremiumModule),
   },
-  { path: 'song/:id', component: SongDetailComponent },
-  { path: 'library/all-playlist', component: AllPlaylistsComponent },
-  { path: 'search-results', component: SearchResultComponent },
-  { path: 'playlist/:playlistId', component: PlaylistDetailComponent },
-  { path: 'artist-songs/:artist', component: ArtistSongsComponent },
-  
-
+  // { path: 'song/:id', component: SongDetailComponent },
+  // { path: 'library/all-playlist', component: AllPlaylistsComponent },
+  // { path: 'search-results', component: SearchResultComponent },
+  // { path: 'playlist/:playlistId', component: PlaylistDetailComponent },
+  // { path: 'artist-songs/:artist', component: ArtistSongsComponent },
 ];
 
 @NgModule({

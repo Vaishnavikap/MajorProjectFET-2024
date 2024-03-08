@@ -1,13 +1,16 @@
 <!-- artist-songs.component.html -->
 <div class="artist-songs-container">
     <h2>{{ artist }} Songs</h2>
-    <div class="song" *ngFor="let song of artistSongs">
-        <div class="song-details">
-            <img class="song-image" [src]="song.imageFile" alt="Song Image">
-            <div class="song-info">
-                <div class="song-title">{{ song.title }}</div>
-                <div class="song-subtitle">{{ song.artist }} - {{ song.album }}</div>
+    <ul class="song-list">
+        <li *ngFor="let song of artistSongs" class="song">
+            <div class="song-details">
+                <img class="song-image" [src]="'http://localhost:3000/' + song.imageFile" alt="Song Image">
+                <div>
+                    <div class="song-title">{{ song.title }}</div>
+                    <div class="song-info">{{ song.artist }} - {{ song.album }}</div>
+                </div>
             </div>
-        </div>
-    </div>
+            <button class="play-button">Play</button>
+        </li>
+    </ul>
 </div>

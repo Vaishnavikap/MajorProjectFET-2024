@@ -72,56 +72,57 @@
 }
 
 .song-list {
-    display: flex;
-    flex-direction: column; /* Change from flex-wrap to column */
-    gap: 10px;
-    margin-top: 20px;
-    overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  overflow-y: auto;
 }
 
-.song.selected {
-    background-color: #48c654; /* Add your desired style for selected songs */
-    color: white;
-  }
-
-  .song {
-    display: flex;
-    align-items: center; /* Align items vertically in the middle */
-    justify-content: space-between; /* Distribute space between items horizontally */
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-    box-sizing: border-box;
-    margin-bottom: 10px;
+.song {
+  display: flex;
+  border: 1px solid #ddd;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
 .song-image {
-  width: 50px; /* Adjust the size as needed */
-  height: 50px; /* Adjust the size as needed */
+  width: 50px;
+  height: 50px;
   margin-right: 10px;
-  object-fit: cover; /* Ensures the image maintains its aspect ratio */
+  object-fit: cover;
 }
 
 .add-button {
-    cursor: pointer;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    margin-left: auto; /* Push the button to the right side of the song row */
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-left: auto;
+}
+
+.add-button:hover {
+  background-color: #45a049;
 }
 
 .song-details {
-    flex: 1;
-    text-align: left;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  text-align: left;
 }
 
 .song-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .song-info {
-    color: #777;
+  color: #777;
 }
 
+.selected-song {
+  background-color: #81e786;
+}

@@ -1,24 +1,25 @@
 <!-- playlist.component.html -->
 <div class="playlist-header">
-  <div class="column">
-      <h2>Make Your Own Playlist</h2>
+    <div class="column">
+        <h2>Make Your Own Playlist</h2>
+    </div>
+    <div class="column">
+        <button class="add-to-playlist-button" *ngIf="showAddToPlaylistButton" (click)="addSelectedToPlaylist()">Add Selected to Playlist</button>
+    </div>
   </div>
-  <div class="column">
-      <button class="add-to-playlist-button" *ngIf="showAddToPlaylistButton" (click)="addSelectedToPlaylist()">Add Selected to Playlist</button>
+  
+  <div class="song-list">
+    <div *ngFor="let song of songs" class="song" [class.selected]="isSongSelected(song)" [class.selected-song]="isSongSelected(song)">
+        <div class="song-details">
+            <img class="song-image" [src]="song.imageUrl" alt="Song Image">
+            <div class="song-info">
+                <div class="song-title">{{ song.title }}</div>
+                <div class="song-subtitle">{{ song.artist }} - {{ song.album }}</div>
+            </div>
+        </div>
+        <button class="add-button" (click)="addToPlaylist(song)">ADD</button>
+    </div>
   </div>
-</div>
-
-<div class="song-list">
-  <div *ngFor="let song of songs" class="song" [class.selected]="isSongSelected(song)">
-      <div class="song-details">
-          <img class="song-image" [src]="song.imageUrl" alt="Song Image">
-          <div class="song-info">
-              <div class="song-title">{{ song.title }}</div>
-              <div class="song-subtitle">{{ song.album }} - {{ song.artist }}</div>
-          </div>
-      </div>
-      <button class="add-button" (click)="addToPlaylist(song)">ADD</button>
-  </div>
-</div>
-
-<router-outlet></router-outlet>
+  
+  <router-outlet></router-outlet>
+  

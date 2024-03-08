@@ -36,14 +36,16 @@ export class TopNavComponent implements OnInit {
  
   ngOnInit(): void {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
-      // Get the current route from the activated route
-      const currentRoute = this.activatedRoute.snapshot.firstChild?.routeConfig?.path;
-      console.log('Current Route:', currentRoute);
-      
-      // Check if the current route is either 'search' or 'search-results'
-      this.isSearchRoute = currentRoute === 'search' || currentRoute === 'search-results';
+      // Get the current URL from the browser
+      const currentUrl = window.location.href;
+  
+      console.log('Current URL:', currentUrl);
+  
+      // Check if the current URL is related to search
+      this.isSearchRoute = currentUrl.includes('search') || currentUrl.includes('search-results');
     });
   }
+  
 
   search(event: any): void {
     const query = event?.target?.value || '';
@@ -54,7 +56,7 @@ export class TopNavComponent implements OnInit {
       );
 
       // Navigate to the search results page with results as parameters
-      this.router.navigate(['/search-results'], { queryParams: { results: JSON.stringify(this.searchResults) } });
+      this.router.navigate(['content/search-results'], { queryParams: { results: JSON.stringify(this.searchResults) } });
     });
   }
 
