@@ -1,0 +1,21 @@
+
+.song-detail-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .song-detail-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+  }
+  
+  .song-detail-title {
+    margin-top: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .song-detail-artist {
+    color: #888;
+  }
+  

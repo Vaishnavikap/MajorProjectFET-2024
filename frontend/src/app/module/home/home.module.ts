@@ -9,7 +9,8 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeComponent } from './home/home/home.component';
 import { RouterModule } from '@angular/router';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import {  FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { SongDetailComponent } from './song-detail/song-detail.component';
 
 
 @NgModule({
@@ -19,15 +20,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     CardComponent,
+    SongDetailComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     RouterModule,
+    FormsModule,
     AuthenticationModule,
     ReactiveFormsModule
   ],
-  exports:[SideBarComponent,TopNavComponent, FooterComponent, HomeComponent, CardComponent],
+  exports:[SideBarComponent,SongDetailComponent ,TopNavComponent, FooterComponent, HomeComponent, CardComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule { }

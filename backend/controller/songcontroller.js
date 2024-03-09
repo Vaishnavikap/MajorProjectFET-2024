@@ -113,6 +113,7 @@ const getSongById = async (req, res) => {
 
 
 
+
 const getSongByArtist = async (req, res) => {
   try {
     const songs = await Song.find({ 'artist': req.params.artist });

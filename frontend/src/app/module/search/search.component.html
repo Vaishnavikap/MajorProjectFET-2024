@@ -1,1 +1,4 @@
-<p>search works!</p>
+<h3 class="playlist-header">Search By Artist</h3>
+<div class="artist-cards-container">
+    <app-artist-card *ngFor="let artist of artists" [artist]="artist" (click)="viewSongsByArtist(artist)"></app-artist-card>
+</div>

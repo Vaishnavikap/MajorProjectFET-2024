@@ -90,9 +90,14 @@ const login = async (req, res, next) => {
       { id: user._id, isAdmin: isAdmin, roles: roles }, 
       "thesecreatkey"
     );
+    const userData = {
+      userId: user._id,
+    
+    };
+ 
 
     res.cookie("access", token, { httpOnly: true });
-
+    res.cookie("userData", JSON.stringify({ userId: user.userId }), { httpOnly: true });
     if (isAdmin) {
       console.log("Admin login success for user with email:", userEmail);
       return res.status(200).json({
@@ -101,6 +106,7 @@ const login = async (req, res, next) => {
         token: token, 
         roles: roleNames,
         data: user
+       
       });
     } else if (isUser) {
       console.log("User login success for user with email:", userEmail);
@@ -110,6 +116,7 @@ const login = async (req, res, next) => {
         token: token, 
         roles: roleNames,
         data: user
+       
       });
     }
   } catch (error) {

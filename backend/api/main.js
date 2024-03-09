@@ -29,7 +29,7 @@ ex.use("/",userRouter);
 ex.use("/",paymentRouter);
 ex.use("/", playlistRouter);
 ex.use('/uploads/images', express.static('uploads/images'));
-
+ex.use('/uploads/audio', express.static('uploads/audio'));
 
 
 

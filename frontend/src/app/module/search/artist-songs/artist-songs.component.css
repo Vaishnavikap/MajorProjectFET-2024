@@ -1,0 +1,49 @@
+/* artist-songs.component.css */
+
+.song-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.song {
+    display: flex;
+    align-items: center; /* Align items in a row */
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.song-image {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    margin-right: 10px;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+}
+
+.play-button {
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-left: auto; /* Push the button to the right side of the song row */
+}
+
+.song-details {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    text-align: left;
+}
+
+.song-title {
+    font-weight: bold;
+}
+
+.song-info {
+    color: #777;
+}

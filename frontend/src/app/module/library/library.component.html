@@ -1,1 +1,37 @@
-<p>library works!</p>
+<!-- <div class="container">
+  <div class="card-1" (click)="showMyPlaylists()" routerLink="/home/library/all-playlist" >
+      <h3 class="card-title">My Playlists</h3>
+      <div *ngIf="selectedPlaylist">
+          <h3>{{ selectedPlaylist.name }}</h3>
+          <ul>
+              <li *ngFor="let song of selectedPlaylist.songs">{{ song.title }}</li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="card-2">
+      <h3 class="card-title">Liked Songs</h3>
+  </div>
+
+  <router-outlet></router-outlet>
+</div> -->
+<!-- library.component.html -->
+<div class="container">
+    <div class="card card-1" (click)="showMyPlaylists()" routerLink="/home/library/all-playlist">
+      <h3 class="card-title">My Playlists</h3>
+      <div *ngIf="selectedPlaylist">
+        <h3>{{ selectedPlaylist.name }}</h3>
+        <ul>
+          <li *ngFor="let song of selectedPlaylist.songs">{{ song.title }}</li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="card card-2">
+      <h3 class="card-title">Liked Songs</h3>
+      <!-- Display liked songs here -->
+    </div>
+  
+    <router-outlet></router-outlet>
+  </div>
+  

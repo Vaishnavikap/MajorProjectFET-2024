@@ -26,29 +26,30 @@ export class LoginComponent {
     console.log("In loginUser", this.user.value);
     this.service.loginUser(this.user.value).subscribe((response: any) => {
       console.log(response);
+   
       if (response && response.roles) {
         console.log("Role:", response.roles);
         
       }
-    
-    
+   
+      sessionStorage.setItem('token', response.token);
+    sessionStorage.setItem('userId',response.data.userId)
   
-      // Check if the response contains the role property and if it includes 'Admin'
       if (response.roles.includes('Admin')) {
       
         console.log("admin login");
-        this.router.navigate(['/admin']); // Redirect to admin dashboard
+        this.router.navigate(['/admin']); 
       } else {
         console.log("user login");
-        this.router.navigate(['/home']); // Redirect to home page
+        this.router.navigate(['/home']); 
       }
-
+     
 
     });
   }
 
   closeDialog() {
-    this.dialogRef.close(); // Close the dialog
+    this.dialogRef.close(); 
   }
 
 }

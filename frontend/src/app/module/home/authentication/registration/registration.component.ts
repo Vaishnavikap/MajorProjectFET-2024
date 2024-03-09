@@ -28,12 +28,12 @@ export class RegistrationComponent {
     })
     
   }
+  
+
   closeDialog() {
-    this.dialogRef.close(); // Close the dialog
+    this.dialogRef.close(); 
   }
 
-
-  
 
  
 }

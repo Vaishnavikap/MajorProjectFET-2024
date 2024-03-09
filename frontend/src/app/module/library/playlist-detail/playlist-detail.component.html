@@ -1,0 +1,15 @@
+<div class="container">
+  <h3 class="playlist-header">{{ playlist.name }} - Detail</h3>
+  <ul class="song-list">
+    <li *ngFor="let song of playlist.songs" class="song">
+      <div class="song-details">
+          <img class="song-image" [src]="'http://localhost:3000/' + song.imageFile" alt="Song Image"> 
+        <div>
+          <div class="song-title">{{ song.title }}</div>
+          <div class="song-info">{{ song.album }} - {{ song.artist }}</div>
+        </div>
+      </div>
+      <button class="play-button">Play</button>
+    </li>
+  </ul>
+</div>

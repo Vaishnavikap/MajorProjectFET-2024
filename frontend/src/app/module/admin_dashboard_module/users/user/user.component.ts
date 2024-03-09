@@ -38,13 +38,16 @@ export class UserComponent implements OnInit {
   }
 
   openDetailsDialog(user: any): void {
-    // Open a Material dialog with the user details
-    const dialogRef = this.dialog.open(UserDetailComponent, {
-      data: { user }, 
-      width: '400px'
+ 
+    const dialogRef = this.dialog.open(
+      
+      UserDetailComponent,
+       {
+      width: '600px',
+      data: user
+
     });
 
-    // Handle dialog close event (if needed)
     dialogRef.afterClosed().subscribe(result => {
       console.log('The details dialog was closed');
     });

@@ -1,0 +1,40 @@
+.song {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.song-details {
+    display: flex;
+    align-items: center;
+}
+
+.song-image {
+    width: 50px; /* Adjust the size as needed */
+    height: 50px; /* Adjust the size as needed */
+    margin-right: 10px;
+    object-fit: cover; /* Ensures the image maintains its aspect ratio */
+}
+
+.play-button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.play-button:hover {
+    background-color: #45a049;
+}
+
+.song-title {
+    font-weight: bold;
+}
+
+.song-subtitle {
+    color: #888;
+}

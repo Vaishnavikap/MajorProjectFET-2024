@@ -1,23 +1,16 @@
-<button mat-icon-button class="close-button" [mat-dialog-close]="true">
-    <mat-icon class="close-icon">close</mat-icon>
-  </button>
-<div class="dialog-content " >
-  <div class="fluid-container">
-      <!-- <div class="close-button-container">
-          <button class="close-button" (click)="closeDialog()">
-              <i class="fas fa-times"></i>
-          </button>
-      </div> -->
 
-      <div class="container">
-          <div  class=" main-section animated jackInTheBox">
+<div class="dialog-content" >
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+        <mat-icon class="close-icon">close</mat-icon>
+      </button>
               <div class="detail-section">
+                <div class="circle-background"></div>
+                <div class="circle-background1"></div>
+             
                   <div class="information">
-                      <h2 class="heading__h2">Music for everyone.</h2>
-                     
-                      <div class="little-info">
-                         
-                          <ul>
+                      <b><h1 class="heading__h1">Music for everyone.</h1></b>
+                      <div class="little-info"> 
+                          <ul class="custom-list">
                             <li>Personalized playlists based on your taste</li>
                               <li>Shuffle play</li>
                               <li>Ad Free Songs</li>
@@ -28,38 +21,37 @@
                           <br>
                           <span style="font-size:0.85em;">Unleash the power of sound with us!</span>
                       </div>
-                     
                   </div>
               </div>
               <div class="form-section">
                   <div class="form-container">
                       <form [formGroup]="user" (ngSubmit)="registerUser()">
                           <div>
-                              <label for="name">FistName:</label>
+                              <label for="name">Fist Name:</label>
                               <input type="text" id="FirstName" formControlName="FirstName">
-                              <div *ngIf="user.get('FirstName')?.invalid && user.get('FirstName')?.touched">
-                                  <div *ngIf="user.get('FirstName')?.errors?.['required']">
-                                      FirstName is required.
+                              <div class="error" *ngIf="user.get('FirstName')?.invalid && user.get('FirstName')?.touched">
+                                  <div class="error" *ngIf="user.get('FirstName')?.errors?.['required']">
+                                      First Name is required.
                                   </div>
                               </div>
                           </div>
                           <div>
-                            <label for="name">LastName:</label>
+                            <label for="name">Last Name:</label>
                             <input type="text" id="LastName" formControlName="LastName">
                             <div *ngIf="user.get('LastName')?.invalid && user.get('LastName')?.touched">
-                                <div *ngIf="user.get('LastName')?.errors?.['required']">
-                                 LastName is required.
+                                <div class="error" *ngIf="user.get('LastName')?.errors?.['required']">
+                                 Last Name is required.
                                 </div>
                             </div>
                         </div>
                           <div>
                               <label for="email">Email:</label>
                               <input type="email" id="email" formControlName="email">
-                              <div *ngIf="user.get('email')?.invalid && user.get('email')?.touched">
+                              <div class="error" *ngIf="user.get('email')?.invalid && user.get('email')?.touched">
                                   <div *ngIf="user.get('email')?.errors?.['required']">
                                       Email is required.
                                   </div>
-                                  <div *ngIf="user.get('email')?.errors?.['emailPattern']">
+                                  <div class="error" *ngIf="user.get('email')?.errors?.['emailPattern']">
                                       Invalid email format. Please use an email address ending with 'gmail.com'.
                                   </div>
                               </div>
@@ -68,13 +60,13 @@
                               <label for="password">Password:</label>
                               <input type="password" id="password" formControlName="password">
                               <div *ngIf="user.get('password')?.invalid && user.get('password')?.touched">
-                                  <div *ngIf="user.get('password')?.errors?.['required']">
+                                  <div class="error" *ngIf="user.get('password')?.errors?.['required']">
                                       Password is required.
                                   </div>
-                                  <div *ngIf="user.get('password')?.errors?.['pattern']">
+                                  <div  class="error" *ngIf="user.get('password')?.errors?.['pattern']">
                                       Password must contain at least one uppercase letter, one lowercase letter, and one symbol.
                                   </div>
-                                  <div *ngIf="user.get('password')?.errors?.['minlength']">
+                                  <div class="error"  *ngIf="user.get('password')?.errors?.['minlength']">
                                       Password must be at least 8 characters long.
                                   </div>
                               </div>
@@ -84,7 +76,5 @@
                       </form>
                   </div>
               </div>
-          </div>
-      </div>
-  </div>
+        
 </div>

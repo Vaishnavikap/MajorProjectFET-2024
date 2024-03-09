@@ -8,7 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatDialogModule,
     HttpClientModule ,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule 
    
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], 
