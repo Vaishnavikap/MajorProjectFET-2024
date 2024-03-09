@@ -69,5 +69,4 @@ export class PlaylistService {
     return this.http.get<any[]>(url);
   }
   
-  
 }

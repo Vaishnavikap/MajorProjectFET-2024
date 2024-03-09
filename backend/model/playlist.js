@@ -36,14 +36,6 @@ const playlistSchema = new mongoose.Schema({
   ],
 });
 
-playlistSchema.virtual('imageUrl').get(function() {
-
-  return `http://localhost:3000/${this.imageFilePath}`;
-});
-playlistSchema.virtual('audioUrl').get(function() {
-  return `http://localhost:3000/${this.audioFilePath}`;
-});
-
  
 
 module.exports = mongoose.model('Playlist', playlistSchema);
