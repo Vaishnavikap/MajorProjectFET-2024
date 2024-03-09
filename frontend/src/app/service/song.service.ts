@@ -24,10 +24,7 @@ export class SongService {
     return this.http.get<any[]>(this.apiUrl);
   }
 
-  getArtistSongs(artist: string): Observable<any[]> {
-    const url = `${this.apiUrl}/getSongByArtist/${artist}`;
-    return this.http.get<any[]>(url);
-  }
+ 
 
   getSongDetails(searchTerm: string): Observable<any> {
     // Append the search term to the API endpoint

@@ -1,58 +1,57 @@
 /* artist-card.component.css */
 
   
-  .artist-card {
-    position: relative;
-    width: 200px;
-    height: 150px;
-    border-radius: 8px;
-    overflow: hidden;
-    margin: 10px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .artist-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .artist-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    filter: brightness(0.7);
-  }
-  
-  .artist-content {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: #fff;
-  }
-  
-  .artist-heading {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  /* Define different colors for each artist */
-  .artist-card.artist-arijit::before {
-    background-color: #ff00b3;
-  }
-  
-  .artist-card.artist-amit::before {
-    background-color: #004d99;
-  }
-  
-  .artist-card.artist-armaan::before {
-    background-color:  #ff3c00;
-  }
+.artist-card {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
 
-  .artist-card.artist-himesh::before {
-    background-color:  #00ffcc;
-  }
-  
+.artist-card:hover {
+  transform: scale(1.05);
+}
+
+.artist-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.7);
+}
+
+.artist-content {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+}
+
+.artist-heading {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Define different colors for each artist */
+.artist-card.artist-arijit::before {
+  background-color: #ff00b3;
+}
+
+.artist-card.artist-amit::before {
+  background-color: #004d99;
+}
+
+.artist-card.artist-armaan::before {
+  background-color:  #ff3c00;
+}
+
+.artist-card.artist-himesh::before {
+  background-color:  #00ffcc;
+}

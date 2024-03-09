@@ -1,20 +1,5 @@
-<!-- <div class="card">
-    <img src="../../../../assets/songsimages/128Chaleya - Jawan 128 Kbps.jpg" 
-    alt="Card Image" class="card-image">
-    <div class="card-content">
-      <h3 class="card-title">Card Title</h3>
-    </div>
-  </div>
-   -->
-   <!-- <div class="card-container">
-    <div *ngFor="let card of cards" class="card" (mouseover)="togglePlayIcon(card)" (mouseout)="togglePlayIcon(card)">
-      <img [src]="card.image" alt="Card Image" class="card-image">
-      <div class="card-content">
-        <h3 class="card-title">{{ card.title }}</h3>
-        <div class="play-icon" *ngIf="card.showPlayIcon"><i class="fa fa-play" aria-hidden="true"></i></div>
-      </div>
-    </div>
-  </div> -->
+
+ 
   <div class="card-container">
     <div *ngFor="let song of songs" class="card" (mouseover)="togglePlayIcon(song)" (mouseout)="togglePlayIcon(song)">
       <img [src]="song.imageUrl" alt="{{ song.title }}" class="card-image">
@@ -28,8 +13,6 @@
   </div>
   
  
-  
-  
   
   
   

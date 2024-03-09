@@ -12,6 +12,17 @@ const userSchema = mongoose.Schema(
       password: { type: String, required: true }, 
       isAdmin:{type:Boolean,default:false},
       roles: { type:[Schema.Types.ObjectId],required:true,ref:"Role" },
+      playlists: [{
+     
+        playlistId: {
+          type: Number,
+          required: true,ref:"Playlist"
+        },
+        name: {
+          type: String,
+          required: true
+        }
+      }]
   },
   {
     timestamps: true

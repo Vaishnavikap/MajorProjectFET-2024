@@ -1,19 +1,21 @@
 <header>
-    <nav class="spotify-top-nav">
-      <div class="navigation">
-        <button class="forward-btn"> < </button>
-        <button class="backward-btn"> > </button>
+  <nav class="spotify-top-nav">
+    <div class="navigation">
+      <button class="forward-btn"> < </button>
+      <button class="backward-btn"> > </button>
 
-        <div class="search-container">
-  <input type="text" class="search-box" placeholder="What do you want to play?" *ngIf="isSearchRoute?.valueOf()" (input)="search($event)">
+      <div class="search-container">
+<input type="text" class="search-box" placeholder="What do you want to play?" *ngIf="isSearchRoute?.valueOf()" (input)="search($event)">
 </div>
-  
-      </div>
 
-      <div class="auth">
-        <button class="sign-in"  (click)="openSignUpModal()"> Sign Up </button>
-        <button class="login"(click)="openLoginInModal()"> Login </button>
-      </div>
-    </nav>
+    </div>
+
+    <div class="auth">
+      <button class="sign-in"  (click)="openSignUpModal()"> Sign Up </button>
+      <button *ngIf="!isLoggedIn" mat-button (click)="openLoginInModal()">Login</button>
+<button *ngIf="isLoggedIn" mat-button (click)="logout()">Logout</button>
+
+    </div>
+  </nav>
 </header>
 <a routerLink="/search-results">Search Results</a>

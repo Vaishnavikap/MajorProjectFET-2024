@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SongUploadService } from '../../../../service/song-upload.service';
+import { MatDialogRef } from '@angular/material/dialog';
+
+
 
 @Component({
   selector: 'app-song-upload',
@@ -12,6 +15,7 @@ export class SongUploadComponent implements OnInit {
   imageFile!: File;
   songFile!: File;
   formVisible!: boolean;
+  dialogRef: any;
 
   constructor(private formBuilder: FormBuilder, private songUploadService: SongUploadService ) { }
 
@@ -32,6 +36,7 @@ export class SongUploadComponent implements OnInit {
     formData.append('imageFile', this.imageFile);//img
     formData.append('songFile', this.songFile);//audio
    
+console.log(formData);
 
     this.songUploadService.uploadSong(formData).subscribe(
       () => {
@@ -39,7 +44,7 @@ export class SongUploadComponent implements OnInit {
         alert('Song uploaded successfully.');
         this.uploadForm.reset();
       },
-      error => {
+      (      error: any) => {
         console.error(error);
         alert('An error occurred while uploading the song.');
       }
@@ -54,9 +59,11 @@ export class SongUploadComponent implements OnInit {
     
   }
 
-  onCancel() {
-    this.formVisible = false;
-    console.log("hello")
+ 
+  closeDialog() {
+    this.dialogRef.close(); // Close the dialog
   }
+
 }
+
  

@@ -14,11 +14,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TopNavComponent implements OnInit {
  
+  
   isSearchRoute: boolean = false;
-
   searchResults: any[] = [];
-
   noDataFoundMessage: string = '';
+  isLoggedIn: boolean = false;
+
+
 
   constructor(private dialog: MatDialog, private router: Router, private searchService: SearchService, private activatedRoute: ActivatedRoute) {}
 
@@ -38,16 +40,29 @@ export class TopNavComponent implements OnInit {
  
   ngOnInit(): void {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
-      // Get the current URL from the browser
       const currentUrl = window.location.href;
-  
-      console.log('Current URL:', currentUrl);
-  
-      // Check if the current URL is related to search
       this.isSearchRoute = currentUrl.includes('search') || currentUrl.includes('search-results');
     });
-  }
+
+ 
+    if (typeof sessionStorage !== 'undefined') {
+      const token = sessionStorage.getItem('token');
+    
+      this.isLoggedIn = !!token; 
   
+    }
+  }
+ 
+   
+  logout(): void {
+    // Clear the token from session storage
+    sessionStorage.removeItem('token');
+    // Update isLoggedIn flag
+    this.isLoggedIn = false;
+    // Redirect to home or any other desired page
+    this.router.navigate(['/']);
+  }
+
 
   search(event: any): void {
     const query = event?.target?.value || '';

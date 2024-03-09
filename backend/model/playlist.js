@@ -16,22 +16,6 @@ const playlistSchema = new mongoose.Schema({
         type: Number, 
         required: true,
       },
-      artist: {
-        type: String, 
-        required: true,
-      },
-      album: {
-        type: String, 
-        required: true,
-      },
-      imageFile: {
-        type: String, 
-        required: true,
-      },
-      audioFile: {
-        type: String, 
-        required: true,
-      },
     },
   ],
 });

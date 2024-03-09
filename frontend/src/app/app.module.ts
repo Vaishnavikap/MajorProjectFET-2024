@@ -12,9 +12,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
+
+
+
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+   
+  
   
   ],
   imports: [
@@ -24,6 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     AdminHomeModule,
     HttpClientModule
+  
+
    
   ],
   providers: [

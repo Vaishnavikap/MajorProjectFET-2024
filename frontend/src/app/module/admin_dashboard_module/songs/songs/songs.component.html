@@ -25,7 +25,7 @@
 </tbody>
 </table>
 <div class="pagination">
-  <button (click)="previousPage()"><</button>
-  <button *ngFor="let page of pages" (click)="goToPage(page)">{{ page }}</button>
-  <button (click)="nextPage()">></button>
+  <button (click)="previousPage()" *ngIf="currentPage > 1">Previous</button>
+  <button *ngFor="let page of pages" (click)="goToPage(page)">{{ currentPage }}</button>
+  <button (click)="nextPage()" *ngIf="currentPage < totalPages">Next</button>
 </div>

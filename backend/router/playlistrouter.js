@@ -5,5 +5,5 @@ const { createPlaylist, getAllPlaylists, getPlaylistById } = require('../control
 playlistRouter.post('/playlist', createPlaylist);
 playlistRouter.get('/playlists', getAllPlaylists);
 playlistRouter.get('/playlist/:playlistId', getPlaylistById); 
-
+// playlistRouter.get('playlist/user/:userId', getPlaylistsByUserId);
 module.exports = playlistRouter;

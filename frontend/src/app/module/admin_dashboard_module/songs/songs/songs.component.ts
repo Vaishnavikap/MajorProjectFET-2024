@@ -1,4 +1,3 @@
-// songs.component.ts
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SongUploadComponent } from '../song-upload/song-upload.component';
@@ -12,7 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class SongsComponent implements OnInit {
   songs: any[] = [];
   currentPage: number = 1;
-  itemsPerPage: number = 6;
+  itemsPerPage: number = 3;
+  totalPages: number=0;
 
   constructor(
     private dialog: MatDialog,
@@ -29,24 +29,36 @@ export class SongsComponent implements OnInit {
     this.http.get<any[]>('http://localhost:3000/getsong')
       .subscribe(songs => {
         this.songs = songs.slice(startIndex, endIndex);
+        this.totalPages = Math.ceil(songs.length / this.itemsPerPage);
       });
   }
 
   nextPage(): void {
-    this.currentPage++;
-    this.fetchSongs();
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      console.log("current page", this.currentPage);
+      
+      this.fetchSongs();
+    }
+  
   }
 
   previousPage(): void {
-    this.currentPage--;
-    this.fetchSongs();
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.fetchSongs();
+    }
   }
+
+
 
   goToPage(page: number): void {
-    this.currentPage = page;
-    this.fetchSongs();
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.fetchSongs(); // Assuming fetchSongs method fetches songs for the selected page
+    }
   }
-
+  
   get pages(): number[] {
     const totalSongs = this.songs.length; // Assuming you have the total number of songs
     const totalPages = Math.ceil(totalSongs / this.itemsPerPage);
@@ -61,7 +73,7 @@ export class SongsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.fetchSongs(); // Refresh songs after adding a new one
+      this.fetchSongs(); 
     });
   }
 

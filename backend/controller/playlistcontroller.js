@@ -51,7 +51,23 @@ const getPlaylistById = async (req, res) => {
     console.error('Error fetching playlist:', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
+  
+// const getPlaylistsByUserId = async (req, res) => {
+//   const { userId } = req.params;
+
+//   try {
+//     // Find playlists associated with the provided user ID
+//     const playlists = await Playlist.find({ createdBy: userId });
+//     res.json(playlists);
+//   } catch (error) {
+//     console.error('Error fetching playlists by user ID:', error);
+//     res.status(500).json({ message: 'Internal Server Error' });
+//   }
+
 };
+
+
+
 
 module.exports = {
     createPlaylist,

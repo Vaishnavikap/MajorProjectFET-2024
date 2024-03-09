@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { HomeRoutingModule } from './home-routing.module';
 import { CardComponent } from './card/card.component';
 import { FooterComponent } from './footer/footer.component';
@@ -8,7 +9,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { HomeComponent } from './home/home/home.component';
 import { RouterModule } from '@angular/router';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {  FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SongDetailComponent } from './song-detail/song-detail.component';
 
 
@@ -25,11 +26,11 @@ import { SongDetailComponent } from './song-detail/song-detail.component';
     CommonModule,
     HomeRoutingModule,
     RouterModule,
+    FormsModule,
     AuthenticationModule,
-    ReactiveFormsModule,
-    FormsModule
+    ReactiveFormsModule
   ],
-  exports:[SideBarComponent,TopNavComponent, FooterComponent, HomeComponent, CardComponent, SongDetailComponent],
+  exports:[SideBarComponent,SongDetailComponent ,TopNavComponent, FooterComponent, HomeComponent, CardComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule { }

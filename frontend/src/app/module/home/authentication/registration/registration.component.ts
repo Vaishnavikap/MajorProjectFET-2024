@@ -14,7 +14,8 @@ export class RegistrationComponent {
 
   user=new FormGroup({
   
-    "name": new FormControl("", Validators.required),
+    "FirstName": new FormControl("", Validators.required),
+    "LastName": new FormControl("", Validators.required),
     "email": new FormControl("", [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@gmail\.com$/)]),
     "password": new FormControl("", [Validators.required, Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]),
   
@@ -27,10 +28,12 @@ export class RegistrationComponent {
     })
     
   }
+  
 
   closeDialog() {
-    this.dialogRef.close(); // Close the dialog
+    this.dialogRef.close(); 
   }
 
-  
+
+ 
 }

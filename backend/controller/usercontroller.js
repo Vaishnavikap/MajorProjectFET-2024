@@ -11,16 +11,34 @@ const User = require("../model/usermodel");
     }
 }
 
- const getUserById = async (req,res,next)=>{
-    try {
-        const user = await User.findById(req.params.id)
+//  const getUserById = async (req,res,next)=>{
+//     try {
+//         const user = await User.findById(req.params.id)
        
-        if(!user)
-            return next(createError(404,"User not found"))
-            return res.status(200).send(user)
+//         if(!user)
+//             return next(createError(404,"User not found"))
+//             return res.status(200).send(user)
+          
+//     } catch (error) {
+//         return next(createError(500,"Internal Server Error"))
+//     }
+// }
+
+
+
+
+
+const getUserById = async (req, res, next) => {
+    try {
+        const user = await User.findOne({ userId: req.params.id }); // Search using custom identifier
+       
+        if (!user)
+            return next(createError(404, "User not found"));
+        
+        return res.status(200).send(user);
           
     } catch (error) {
-        return next(createError(500,"Internal Server Error"))
+        return next(createError(500, "Internal Server Error"));
     }
 }
 const deleteUser = async (req, res) => {
