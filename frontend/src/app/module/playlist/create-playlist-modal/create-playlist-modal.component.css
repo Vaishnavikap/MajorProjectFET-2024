@@ -1,0 +1,87 @@
+/* Add this CSS to your styles.css or the component's style file */
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .selected-songs {
+    margin-top: 20px;
+  }
+  
+  h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button {
+    background-color: #1db954;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px; /* Add some right margin to create space between buttons */
+  }
+  
+  button:last-child {
+    margin-right: 0; /* Remove right margin from the last button */
+  }
+  
+  button:hover {
+    background-color: #168f49;
+  }
+
+  .error-message {
+    color: #f00;
+    font-size: 12px;
+  }
+  

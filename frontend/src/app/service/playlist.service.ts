@@ -68,16 +68,17 @@ export class PlaylistService {
     const url = `${this.apiUrl}/getSongByArtist/${artist}`;
     return this.http.get<any[]>(url);
   }
-  //  getPlaylistsByUserId(userId: string): Observable<any[]> {
-//     const url = `${this.apiUrl}/playlist/user/:${userId}`; // Endpoint to fetch playlists by user ID
-//     return this.http.get<any[]>(url).pipe(
-//       catchError((error: HttpErrorResponse) => {
-//         console.error('Error fetching playlists by user ID:', error);
-//         return throwError('Something went wrong while fetching playlists.');
-//       })
-//     );
-//   } 
-  
+ // In your PlaylistService
+getPlaylistsByUserId(userId: number): Observable<any[]> {
+  const url = `${this.apiUrl}/playlist/userId/${userId}`;
+  return this.http.get<any[]>(url).pipe(
+    catchError((error: HttpErrorResponse) => {
+      console.error('Error fetching playlists by user ID:', error);
+      return throwError('Something went wrong while fetching playlists.');
+    })
+  );
+}
+
 }
 
   
