@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema(
      
         playlistId: {
           type: Number,
-          required: true,ref:"Playlist"
+          required: true
         },
         name: {
           type: String,

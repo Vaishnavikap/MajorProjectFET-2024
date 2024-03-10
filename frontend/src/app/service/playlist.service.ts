@@ -13,12 +13,12 @@ export class PlaylistService {
 
   constructor(private http: HttpClient) {}
 
-  addPlaylist(name: string, songs: any[]): void {
+  addPlaylist(name: string, songs: any[],userId): void {
     // Local addition
-    this.playlists.push({ name, songs });
+    this.playlists.push({ name, songs,userId });
 
     // API addition
-    const playlistData = { name, songs };
+    const playlistData = { name, songs,userId };
     this.createPlaylist(playlistData).subscribe(
       (response) => {
         console.log('Playlist created successfully:', response);
@@ -81,8 +81,3 @@ export class PlaylistService {
 }
 
   
-
-
-  
-  
-
