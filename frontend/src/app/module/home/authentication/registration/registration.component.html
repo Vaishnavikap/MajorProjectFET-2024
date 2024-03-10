@@ -58,7 +58,14 @@
                           </div>
                           <div>
                               <label for="password">Password:</label>
-                              <input type="password" id="password" formControlName="password">
+                         
+                              <div class="password-wrapper">
+                                <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password">
+                                <button type="button" (click)="togglePasswordVisibility()" class="password-toggle">
+                                    <i [class]="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"></i>
+                                </button>
+                            </div>
+
                               <div *ngIf="user.get('password')?.invalid && user.get('password')?.touched">
                                   <div class="error" *ngIf="user.get('password')?.errors?.['required']">
                                       Password is required.
@@ -71,8 +78,8 @@
                                   </div>
                               </div>
                           </div>
-
-                          <button type="submit" [disabled]="user.invalid">Sign Up</button>
+                      
+                          <button type="submit"  [mat-dialog-close]="true">Sign Up</button>
                       </form>
                   </div>
               </div>

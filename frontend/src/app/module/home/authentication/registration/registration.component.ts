@@ -10,6 +10,9 @@ import { UserRegistrationService } from '../../../../service/user-registration.s
 })
 export class RegistrationComponent {
   private dialogRef!: MatDialogRef<RegistrationComponent>;
+  showPassword: boolean=false;
+
+
   constructor(private service:UserRegistrationService){}
 
   user=new FormGroup({
@@ -21,14 +24,20 @@ export class RegistrationComponent {
   
   });
   registerUser(){
+
+
+   
     console.log("In addUser",this.user.value);
     this.service.saveUserDetails(this.user.value).subscribe(response=>{
       console.log(response);
-    
+      this.dialogRef.close(); 
     })
     
   }
   
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 
   closeDialog() {
     this.dialogRef.close(); 

@@ -68,6 +68,7 @@ export class SongsComponent implements OnInit {
   openAddSongDialog(): void {
     const dialogRef = this.dialog.open(SongUploadComponent , {
       width: '400px',
+      height:"600px",
       disableClose: true,
     });
 

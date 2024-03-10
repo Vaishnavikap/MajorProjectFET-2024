@@ -47,7 +47,7 @@ export class TopNavComponent implements OnInit {
  
     if (typeof sessionStorage !== 'undefined') {
       const token = sessionStorage.getItem('token');
-    
+  
       this.isLoggedIn = !!token; 
   
     }

@@ -142,7 +142,7 @@ const generateuserId = async () => {
     throw new Error('Error generating userId');
   }
 };
-;
+
 
 
 module.exports={login,register,registerAdmin

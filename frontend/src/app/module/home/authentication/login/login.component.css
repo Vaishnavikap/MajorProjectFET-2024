@@ -35,7 +35,8 @@
     left: 41.5%; 
   bottom: 0.5%;
     width: 10%; 
-    right: -3%;
+    right: -6%;
+    z-index: -1;
     height: 20%; 
     opacity: 0.5;
     border-radius: 50%;
@@ -49,7 +50,6 @@
    margin-left: 6%;
   border-radius: 5px;
   color: #ffffff;
-
 
 }
 

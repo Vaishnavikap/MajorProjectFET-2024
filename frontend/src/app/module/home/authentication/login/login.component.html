@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-        <button type="submit" [disabled]="user.invalid"(click)="loginUser()">Sign In</button>
+        <button type="submit" [mat-dialog-close]="true"(click)="loginUser()">Sign In</button>
       </form>
     </div>
   </div>
