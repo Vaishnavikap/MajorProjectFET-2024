@@ -7,6 +7,7 @@ import { AllPlaylistsComponent } from '../library/all-playlists/all-playlists.co
 import { PlaylistDetailComponent } from '../library/playlist-detail/playlist-detail.component';
 import { ArtistSongsComponent } from '../search/artist-songs/artist-songs.component';
 
+import { AuthGuard } from '../../guards/auth.guard';
 
 
 const routes: Routes = [
@@ -30,7 +31,7 @@ const routes: Routes = [
      },
      {
        path: 'playlist',
-       loadChildren: () => import('../../module/playlist/playlist.module').then(m => m.PlaylistModule),
+       loadChildren: () => import('../../module/playlist/playlist.module').then(m => m.PlaylistModule),canActivate: [AuthGuard]
      },
     //  {
     //    path: 'premium',
