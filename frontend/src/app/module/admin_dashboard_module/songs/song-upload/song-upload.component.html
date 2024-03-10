@@ -1,4 +1,4 @@
-<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+<button  mat-icon-button class="close-button" [mat-dialog-close]="true">
   <mat-icon class="close-icon">close</mat-icon>
 </button>
 
@@ -9,9 +9,9 @@
     <input type="text" formControlName="artist" required><br><br>
     <label>Album:</label><br>
     <input type="text" formControlName="album" required><br><br>
-    <h1>image</h1>
+    <label>Image:</label><br>
     <input type="file" (change)="onimageFileChange($event)" accept=".jpg ,.jpeg,.png" required><br><br>
-    <h1>song</h1>
+    <label>Song:</label><br>
     <input type="file" (change)="onsongFileChange($event)" accept=".mp3" required><br><br>
-    <button type="submit">Upload Song</button>
+    <button type="submit" [mat-dialog-close]="true">Upload Song</button>
   </form>

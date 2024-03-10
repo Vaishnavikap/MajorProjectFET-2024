@@ -22,8 +22,9 @@ exports.createOrder = async (req, res) => {
     };
 
     const order = await razorpay.orders.create(options);
-
+    const paymentId= await generatepaymentId();
     const payment = new Payment({
+      paymentId,
       orderId: order.id,
       amount: amount,
       currency: "INR",
@@ -37,4 +38,21 @@ exports.createOrder = async (req, res) => {
     console.error('Error creating Razorpay order:', error);
     res.status(error.statusCode || 500).send({ error: error.message });
   }
-};2
+  
+
+const generatepaymentId = async () => {
+  try {
+    const highestExistingPayment= await Payment.findOne().sort({ paymentId: -1 });
+    let newPaymentId;
+    if (highestExistingPayment && highestExistingPayment.paymentId) {
+      newPaymentId = highestExistingPayment.PaymentId + 1;
+    } else {
+      newPaymentId = 1;
+    }
+    return newPaymentId;
+  } catch (error) {
+    console.error('Error generating userId:', error);
+    throw new Error('Error generating userId');
+  }
+};
+};

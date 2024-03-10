@@ -12,8 +12,8 @@
 
     <div class="auth">
       <button class="sign-in"  (click)="openSignUpModal()"> Sign Up </button>
-      <button *ngIf="!isLoggedIn" mat-button (click)="openLoginInModal()">Login</button>
-<button *ngIf="isLoggedIn" mat-button (click)="logout()">Logout</button>
+      <button class="login" *ngIf="!isLoggedIn" mat-button (click)="openLoginInModal()">Login</button>
+<button class="login" *ngIf="isLoggedIn" mat-button (click)="logout()">Logout</button>
 
     </div>
   </nav>
