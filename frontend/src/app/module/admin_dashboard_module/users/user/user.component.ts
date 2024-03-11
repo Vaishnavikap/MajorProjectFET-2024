@@ -43,9 +43,9 @@ export class UserComponent implements OnInit {
       
       UserDetailComponent,
        {
-      width: '800px',
-      height:'400px',
-            data: { userId }
+      width: '700px',
+      height:'350px',
+      data: { userId }
 
     });
   

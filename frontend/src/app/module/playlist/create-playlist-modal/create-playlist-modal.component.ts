@@ -19,7 +19,6 @@ export class CreatePlaylistModalComponent {
   ) {}
  userId = this.AuthserviceService.getUserId();
   onPlaylistCreate(): void {
-    // Add selected songs to the playlist using the PlaylistService
     this.playlistService.addPlaylist(this.playlistName, this.data.selectedSongs,this.userId);
     this.dialogRef.close();
   }

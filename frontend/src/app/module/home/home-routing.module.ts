@@ -33,10 +33,10 @@ const routes: Routes = [
        path: 'playlist',
        loadChildren: () => import('../../module/playlist/playlist.module').then(m => m.PlaylistModule),canActivate: [AuthGuard]
      },
-    //  {
-    //    path: 'premium',
-    //    loadChildren: () => import('../../module/premium/premium.module').then(m => m.PremiumModule),
-    //  }
+     {
+       path: 'premium',
+       loadChildren: () => import('../../module/premium/premium.module').then(m => m.PremiumModule),
+     }
    ]
  }
  // { path: 'song/:id', component: SongDetailComponent },

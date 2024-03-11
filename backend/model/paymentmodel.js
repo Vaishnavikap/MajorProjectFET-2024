@@ -7,7 +7,8 @@ const paymentSchema = new mongoose.Schema({
   currency: { type: String, required: true },
   receipt: { type: String, required: true },
   status: { type: String },
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  userId: { type: String, required: true } 
 });
 
 const Payment = mongoose.model('Payment', paymentSchema);
