@@ -6,6 +6,7 @@ import { LibraryComponent } from './library.component';
 import { RouterModule } from '@angular/router';
 import { AllPlaylistsComponent } from './all-playlists/all-playlists.component';
 import { PlaylistDetailComponent } from './playlist-detail/playlist-detail.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,8 @@ import { PlaylistDetailComponent } from './playlist-detail/playlist-detail.compo
   imports: [
     CommonModule,
     LibraryRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ]
 })
 export class LibraryModule { }

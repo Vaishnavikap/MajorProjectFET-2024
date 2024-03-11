@@ -18,6 +18,10 @@ export class AllPlaylistsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadPlaylists();
+  }
+
+  loadPlaylists(): void {
     const userId = this.authService.getUserId();
 
     if (userId) {
@@ -36,7 +40,6 @@ export class AllPlaylistsComponent implements OnInit {
     }
   }
 
-
   toggleSongs(playlist: any): void {
     // Toggle the showSongs property to display/hide songs
     playlist.showSongs = !playlist.showSongs;
@@ -45,5 +48,20 @@ export class AllPlaylistsComponent implements OnInit {
   navigateToDetail(playlist: any): void {
     console.log('Selected Playlist:', playlist);
     this.router.navigate(['/home/playlist', playlist.playlistId]);
+  }
+
+  deletePlaylist(playlistId: number): void {
+    // Call the service method to delete the playlist
+    this.playlistService.deletePlaylist(playlistId).subscribe(
+      () => {
+        console.log('Playlist deleted successfully');
+        // Reload playlists after deletion
+        this.loadPlaylists();
+      },
+      (error) => {
+        console.error('Error deleting playlist:', error);
+        // Handle error
+      }
+    );
   }
 }

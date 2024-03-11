@@ -1,48 +1,47 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup,Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog'; // 
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar'; 
 import { UserRegistrationService } from '../../../../service/user-registration.service';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrl: './registration.component.css'
+  styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent {
   private dialogRef!: MatDialogRef<RegistrationComponent>;
-  showPassword: boolean=false;
+  showPassword: boolean = false;
 
+  constructor(
+    private service: UserRegistrationService,
+    private snackBar: MatSnackBar 
+  ) {}
 
-  constructor(private service:UserRegistrationService){}
-
-  user=new FormGroup({
-  
+  user = new FormGroup({
     "FirstName": new FormControl("", Validators.required),
     "LastName": new FormControl("", Validators.required),
     "email": new FormControl("", [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@gmail\.com$/)]),
-    "password": new FormControl("", [Validators.required, Validators.minLength(8),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]),
-  
+    "password": new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]),
   });
-  registerUser(){
 
-
-   
-    console.log("In addUser",this.user.value);
-    this.service.saveUserDetails(this.user.value).subscribe(response=>{
+  registerUser() {
+    console.log("In addUser", this.user.value);
+    this.service.saveUserDetails(this.user.value).subscribe(response => {
       console.log(response);
-      this.dialogRef.close(); 
-    })
     
+      this.snackBar.open('Registration Successful!', 'Dismiss', {
+        duration: 3000,
+      });
+      this.dialogRef.close();
+    });
   }
-  
+
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
 
   closeDialog() {
-    this.dialogRef.close(); 
+    this.dialogRef.close();
   }
-
-
- 
 }

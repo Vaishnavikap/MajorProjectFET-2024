@@ -78,6 +78,15 @@ getPlaylistsByUserId(userId: number): Observable<any[]> {
     })
   );
 }
+deletePlaylist(playlistId: number): Observable<any> {
+  const url = `${this.apiUrl}/playlist/${playlistId}`;
+  return this.http.delete(url).pipe(
+    catchError((error: HttpErrorResponse) => {
+      console.error('Error deleting playlist:', error);
+      return throwError('Something went wrong while deleting the playlist.');
+    })
+  );
+}
 
 }
 
