@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from '../../../service/playlist.service';
 import { Router } from '@angular/router';
+import { AuthserviceService } from '../../../service/authservice.service';
 
 @Component({
   selector: 'app-all-playlists',
@@ -10,18 +11,33 @@ import { Router } from '@angular/router';
 export class AllPlaylistsComponent implements OnInit {
   playlists: any[] = [];
 
-  constructor(private playlistService: PlaylistService, private router: Router ) { }
+  constructor(
+    private playlistService: PlaylistService,
+    private authService: AuthserviceService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.playlistService.getPlaylists().subscribe(
-      playlists => {
-        this.playlists = playlists;
-      },
-      error => {
-        console.error('Error fetching playlists:', error);
-        // Handle error
-      }
-    );
+    this.loadPlaylists();
+  }
+
+  loadPlaylists(): void {
+    const userId = this.authService.getUserId();
+
+    if (userId) {
+      this.playlistService.getPlaylistsByUserId(userId).subscribe(
+        (playlists) => {
+          this.playlists = playlists;
+        },
+        (error) => {
+          console.error('Error fetching playlists:', error);
+          // Handle error
+        }
+      );
+    } else {
+      console.error('User ID not available');
+      // Handle the case where the user ID is not available
+    }
   }
 
   toggleSongs(playlist: any): void {
@@ -31,6 +47,21 @@ export class AllPlaylistsComponent implements OnInit {
   
   navigateToDetail(playlist: any): void {
     console.log('Selected Playlist:', playlist);
-    this.router.navigate(['/home//playlist', playlist.playlistId]);
+    this.router.navigate(['/home/playlist', playlist.playlistId]);
+  }
+
+  deletePlaylist(playlistId: number): void {
+    // Call the service method to delete the playlist
+    this.playlistService.deletePlaylist(playlistId).subscribe(
+      () => {
+        console.log('Playlist deleted successfully');
+        // Reload playlists after deletion
+        this.loadPlaylists();
+      },
+      (error) => {
+        console.error('Error deleting playlist:', error);
+        // Handle error
+      }
+    );
   }
 }
