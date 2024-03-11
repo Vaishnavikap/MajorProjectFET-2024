@@ -1,0 +1,93 @@
+
+.spotify-green {
+    color: #1DB954;
+  }
+  
+ 
+  .spotify-gray {
+    color: #b3b3b3;
+list-style-type: none;
+  }
+  
+
+  .spotify-bg {
+    background-color: #121212;
+   
+
+  }
+
+  .spotify-border-radius {
+    border-radius: 4px;
+  }
+  
+ 
+  .spotify-box-shadow {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+ 
+  .about-us {
+    padding: 50px 0;
+    background-color: #121212; 
+    color: #b3b3b3; 
+  }
+  
+  .about-us h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #1DB954; 
+     overflow-y: hidden; 
+  }
+  
+  .about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .about-us img {
+    max-width: 16%;
+    height: auto;
+    border-radius: 4px; 
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); 
+  }
+
+  body {
+   
+    color: #b3b3b3; 
+    margin: 0; 
+    padding: 0;
+    height: 100vh; 
+    overflow-y: hidden; 
+   
+  }
+  
+ 
+  .about-us {
+     padding: 50px 0;
+    height: 100vh; 
+    display: flex; 
+   
+  }
+  
+  .about-us h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #1DB954; /* Use Spotify's primary green color */
+  }
+  
+  .about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .about-us img {
+    max-width: 22%;
+    height: auto;
+    border-radius: 4px; /* Use Spotify's border radius */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Use Spotify's box shadow */
+  }
+  
+  

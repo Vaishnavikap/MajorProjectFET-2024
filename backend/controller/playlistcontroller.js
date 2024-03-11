@@ -79,8 +79,26 @@ const getPlaylistById = async (req, res) => {
         console.error('Error fetching playlists by user ID:', error);
         res.status(500).json({ message: 'Internal Server Error' });
       }
+
     };
     
+   
+    const deletePlaylist = async (req, res) => {
+      const { playlistId } = req.params;
+    
+      try {
+        const deletedPlaylist = await Playlist.findOneAndDelete({ playlistId: parseInt(playlistId) });
+    
+        if (!deletedPlaylist) {
+          return res.status(404).json({ message: 'Playlist not found' });
+        }
+    
+        res.status(200).json({ message: 'Playlist deleted successfully' });
+      } catch (error) {
+        console.error('Error deleting playlist:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
+      }
+    };
 
 
 
@@ -88,5 +106,5 @@ module.exports = {
     createPlaylist,
     getAllPlaylists,
     getPlaylistById,
-    getPlaylistByUserId
+    getPlaylistByUserId,deletePlaylist
 };

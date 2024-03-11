@@ -11,6 +11,9 @@ import { RouterModule } from '@angular/router';
 import { AuthenticationModule } from './authentication/authentication.module';
 import {  FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { SongDetailComponent } from './song-detail/song-detail.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { AccordionComponent } from './accordion/accordion.component';
 
 
 @NgModule({
@@ -21,6 +24,9 @@ import { SongDetailComponent } from './song-detail/song-detail.component';
     HomeComponent,
     CardComponent,
     SongDetailComponent,
+    ContactUsComponent,
+    AboutUsComponent,
+    AccordionComponent 
   ],
   imports: [
     CommonModule,
@@ -30,7 +36,7 @@ import { SongDetailComponent } from './song-detail/song-detail.component';
     AuthenticationModule,
     ReactiveFormsModule
   ],
-  exports:[SideBarComponent,SongDetailComponent ,TopNavComponent, FooterComponent, HomeComponent, CardComponent],
+  exports:[SideBarComponent,SongDetailComponent ,TopNavComponent, FooterComponent, HomeComponent, CardComponent, ContactUsComponent,AboutUsComponent,AccordionComponent ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule { }

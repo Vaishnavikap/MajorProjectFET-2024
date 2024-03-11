@@ -14,6 +14,7 @@ const authRouter=require("../router/authrouter")
 const userRouter=require("../router/userrouter")
 const paymentRouter=require("../router/paymentrouter")
 const playlistRouter = require("../router/playlistrouter");
+const contactRouter=require("../router/contactUsrouter")
 const cors=require("cors");
 
 
@@ -28,6 +29,7 @@ ex.use("/", authRouter);
 ex.use("/",userRouter);
 ex.use("/",paymentRouter);
 ex.use("/", playlistRouter);
+ex.use("/",contactRouter);
 ex.use('/uploads/images', express.static('uploads/images'));
 ex.use('/uploads/audio', express.static('uploads/audio'));
 

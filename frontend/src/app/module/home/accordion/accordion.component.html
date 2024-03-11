@@ -1,0 +1,14 @@
+<!-- accordion.component.html -->
+<div class="accordion">
+    <h1>Frequently Asked Questions</h1>
+    <div class="abc">
+    <div *ngFor="let item of items" class="accordion-item">
+      <input type="checkbox" [id]="'accordion' + item.id" (change)="toggleItem(item.id)">
+      <label [for]="'accordion' + item.id" class="accordion-item-title">
+        <span class="icon"></span>{{ item.title }}
+      </label>
+      <div *ngIf="openItem === item.id" class="accordion-item-desc">{{ item.description }}</div>
+    </div>
+  </div>
+  </div>
+  

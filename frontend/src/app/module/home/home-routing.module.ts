@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
 import { SongDetailComponent } from './song-detail/song-detail.component';
@@ -8,6 +8,10 @@ import { PlaylistDetailComponent } from '../library/playlist-detail/playlist-det
 import { ArtistSongsComponent } from '../search/artist-songs/artist-songs.component';
 
 import { AuthGuard } from '../../guards/auth.guard';
+import path from 'path';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { AccordionComponent } from './accordion/accordion.component';
 
 
 const routes: Routes = [
@@ -15,7 +19,9 @@ const routes: Routes = [
  { path: 'home', component: HomeComponent,
 
    children: [
-    
+   {path:'faq',component:AccordionComponent },
+    { path: 'about', component:  AboutUsComponent},
+    { path: 'contact', component: ContactUsComponent },
      { path: 'song/:id', component: SongDetailComponent },
      { path: 'library/all-playlist', component: AllPlaylistsComponent },
      { path: 'search-results', component: SearchResultComponent },
@@ -39,13 +45,7 @@ const routes: Routes = [
      }
    ]
  }
- // { path: 'song/:id', component: SongDetailComponent },
- // { path: 'library/all-playlist', component: AllPlaylistsComponent },
- // { path: 'search-results', component: SearchResultComponent },
- // { path: 'playlist/:playlistId', component: PlaylistDetailComponent },
- // { path: 'artist-songs/:artist', component: ArtistSongsComponent },
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
