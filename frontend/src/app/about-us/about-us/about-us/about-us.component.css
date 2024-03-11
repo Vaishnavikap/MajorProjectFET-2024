@@ -1,0 +1,96 @@
+/* Add Spotify-like styles */
+
+/* Spotify's primary green color */
+.spotify-green {
+    color: #1DB954;
+  }
+  
+  /* Spotify's gray color for text */
+  .spotify-gray {
+    color: #b3b3b3;
+  }
+  
+  /* Spotify's background color */
+  .spotify-bg {
+    background-color: #121212;
+   
+
+  }
+  
+  /* Spotify's border radius */
+  .spotify-border-radius {
+    border-radius: 4px;
+  }
+  
+  /* Spotify's box shadow */
+  .spotify-box-shadow {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Apply Spotify-like styles to your existing classes */
+  .about-us {
+    padding: 50px 0;
+    background-color: #121212; /* Use Spotify's background color */
+    color: #b3b3b3; /* Use Spotify's gray color for text */
+  }
+  
+  .about-us h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #1DB954; /* Use Spotify's primary green color */
+     overflow-y: hidden; /* Hide the vertical scrollbar */
+  }
+  
+  .about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .about-us img {
+    max-width: 16%;
+    height: auto;
+    border-radius: 4px; /* Use Spotify's border radius */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Use Spotify's box shadow */
+  }
+  /* Update the background color of the body */
+  body {
+    background-color: #121212; /* Use Spotify's background color */
+    color: #b3b3b3; /* Use Spotify's gray color for text */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    height: 100vh; /* Set body height to 100% of the viewport height */
+    overflow-y: hidden; /* Hide the vertical scrollbar */
+   
+  }
+  
+  /* Apply Spotify-like styles to your existing classes */
+  .about-us {
+     padding: 50px 0;
+    height: 100vh; /* Set the height to 100% of the viewport height */
+    display: flex; /* Use flexbox for centering content vertically */
+   
+  }
+  
+  .about-us h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #1DB954; /* Use Spotify's primary green color */
+  }
+  
+  .about-us p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .about-us img {
+    max-width: 22%;
+    height: auto;
+    border-radius: 4px; /* Use Spotify's border radius */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1); /* Use Spotify's box shadow */
+  }
+  
+  
