@@ -21,7 +21,17 @@ export class UserComponent implements OnInit {
     this.http.get<any[]>('http://localhost:3000/user')
       .subscribe(users => {
         this.users = users;
+        this.fetchPaymentsForUsers(); 
       });
+  }
+
+  fetchPaymentsForUsers(): void {
+    this.users.forEach(user => {
+      this.http.get<any[]>(`http://localhost:3000/payment/userId/${user.userId}`)
+        .subscribe(payments => {
+          user.payments = payments; // Add payments array to each user object
+        });
+    });
   }
 
   deleteUser(id: number): void {
@@ -43,15 +53,30 @@ export class UserComponent implements OnInit {
       
       UserDetailComponent,
        {
-      width: '700px',
+      width: '650px',
       height:'350px',
       data: { userId }
 
     });
   
-
+    
     dialogRef.afterClosed().subscribe(result => {
       console.log('The details dialog was closed');
     });
+    
+  }
+  
+  getPlanName(amount: number): string {
+    switch (amount) {
+      case 119:
+        return 'Premium Individual';
+      case 210:
+        return 'Premium Family';
+      case 110:
+        return 'Student Plan';
+      default:
+        return 'Unknown Plan';
+    }
   }
 }
+

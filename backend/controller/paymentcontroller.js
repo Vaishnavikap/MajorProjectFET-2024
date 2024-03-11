@@ -47,7 +47,8 @@ exports.createOrder = async (req, res) => {
       amount,
       currency: "INR",
       receipt: options.receipt,
-      userId
+      userId,
+      
     });
 
     await payment.save();
@@ -64,12 +65,17 @@ exports.getPaymentByUserId = async (req, res) => {
 
   try {
     const payments = await Payment.find({ userId });
-    if (!payments || payments.length === 0) {
-      return res.status(404).json({ message: 'Payments not found for the user' });
+
+    // If payments are found, send them to the client
+    if (payments && payments.length > 0) {
+      return res.status(200).json(payments);
     }
-    res.status(200).json(payments);
+    
+    // If no payments are found, send 'N/A' as the response
+    return res.status(200).json({ message: 'N/A' });
   } catch (error) {
+    // If an error occurs during fetching payments, send an internal server error response
     console.error('Error fetching payments by user ID:', error);
-    res.status(500).json({ message: 'Internal Server Error' });
+    return res.status(500).json({ message: 'Internal Server Error' });
   }
 };

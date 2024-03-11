@@ -9,6 +9,7 @@ const paymentSchema = new mongoose.Schema({
   status: { type: String },
   createdAt: { type: Date, default: Date.now },
   userId: { type: String, required: true } 
+
 });
 
 const Payment = mongoose.model('Payment', paymentSchema);

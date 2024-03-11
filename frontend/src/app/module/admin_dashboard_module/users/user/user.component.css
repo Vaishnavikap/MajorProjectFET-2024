@@ -23,11 +23,13 @@
   
   .user-table th {
     background-color: #030303;
-    font-weight: bold;
+    font-weight:400;
     color: #fff;
   }
   
-
+.payment-list{
+  list-style-type: none;
+}
   .delete-button {
     background-color: transparent;
     color: rgb(202, 14, 14);

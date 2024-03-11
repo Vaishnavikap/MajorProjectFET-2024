@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-admin-topnav',
@@ -7,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./admin-topnav.component.css']
 })
 export class AdminTopnavComponent implements OnInit {
-  admins: any[] = [];
+  admins$!: Observable<any[]>;
 
   constructor(private http: HttpClient) {}
 
@@ -16,9 +18,17 @@ export class AdminTopnavComponent implements OnInit {
   }
 
   fetchAdmin(): void {
-    this.http.get<any[]>('http://localhost:3000/user')
-      .subscribe(admins => {
-        this.admins = admins; // Assign fetched admins to the admins array
-      });
+    this.admins$ = this.http.get<any[]>('http://localhost:3000/user').pipe(
+      catchError(error => {
+        console.error('Error fetching admins:', error);
+        // Handle the error, such as displaying an error message to the user
+        return throwError('Failed to fetch admins. Please try again later.');
+      })
+    );
+  }
+
+  getAdminFirstName(admins: any[]): string {
+    const admin = admins.find(admin => admin.isAdmin);
+    return admin ? admin.FirstName : '';
   }
 }

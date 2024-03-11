@@ -1,6 +1,6 @@
 <header>
-    <div *ngIf="admins.length > 0" class="user-info">
-      <span class="greeting">Hi,  {{ admins[0].isAdmin ? admins[0].FirstName : 'Guest' }}</span>
+    <div *ngIf="admins$ | async as admins" class="user-info">
+      <span class="greeting">Hi,{{ getAdminFirstName(admins) || 'Guest' }}</span>
       <a href="#" class="profile-link">
         <i class="fas fa-user-circle"></i>
       </a>

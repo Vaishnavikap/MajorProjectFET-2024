@@ -1,32 +1,37 @@
-
 <div class="header_user">
-  
-    
-    <table class="user-table">
+  <table class="user-table">
     <thead>
       <tr>
-      
-        <th>FisrtName</th>
+        <th>FirstName</th>
         <th>LastName</th>
         <th>Email</th>
         <th>Role</th>
+        <th>Premium</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
-        <td>   {{ user.FirstName }}</td>
-        <td>   {{ user.LastName }}</td>
-        <td>   {{ user.email }}</td>
-        <td>{{ user.isAdmin ? 'Admin' : 'User'}}</td>
-       
+        <td>{{ user.FirstName }}</td>
+        <td>{{ user.LastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.isAdmin ? 'Admin' : 'User' }}</td>
+        <td style="text-align: left;">
+          <ul class="payment-list"*ngIf="user.payments && user.payments.length > 0">
+            <li *ngFor="let payment of user.payments">
+              {{ getPlanName(payment.amount) }}
+            </li>
+          </ul>
+        </td>
         <td>
           <button class="details-button" (click)="openDetailsDialog(user.userId)">
             <i class="fas fa-info"></i> 
           </button> 
-            <button class="delete-button" (click)="deleteUser(user._id)"><i class="fas fa-trash"></i></button></td>
+          <button class="delete-button" (click)="deleteUser(user._id)">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
-    </table>
- 
-    
+  </table>
+</div>

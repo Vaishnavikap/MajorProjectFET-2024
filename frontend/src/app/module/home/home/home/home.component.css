@@ -38,8 +38,8 @@
     box-sizing: border-box;
     width: calc(100% - 300px);
     overflow-y: scroll; 
-    /* border: 2px solid red; */
-    height: 63%;
+
+    height: 76.5%;
   }
   
   .footer {
