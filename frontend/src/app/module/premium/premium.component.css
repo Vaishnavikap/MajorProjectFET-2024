@@ -1,0 +1,129 @@
+.card1 {
+    background: linear-gradient(45deg, #e8bbbe, #f11212);
+
+
+    color:black;
+    text-align: center;
+    padding: 20px;
+    width:350px;
+    height:260px;
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-right: 20px;
+    justify-content: space-evenly;
+    
+  
+    
+}
+h2{
+    margin-top: 10px;
+    font-weight: bolder;
+
+}
+.container{
+    display:flex;
+
+    margin-left: 110px;
+    box-sizing: border-box;
+   
+   
+  
+   
+
+}
+.card2 {
+    background: linear-gradient(45deg, #c3d79d, #4df510 );
+    color:black;
+    text-align: center;
+    padding: 20px;
+    width:350px;
+    height:260px;
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-right: 20px;
+    justify-content: space-evenly;
+  
+    
+}
+.card3 {
+    background: linear-gradient(45deg, #6495ed, #da70d6);
+    color: black;
+    text-align: center;
+    padding: 20px;
+    width:350px;
+    height:260px;
+    border-radius: 15px;
+    
+    margin-top: 50px;
+    margin-right: 90px;
+    justify-content: space-evenly;
+  
+    
+}
+.card1:hover {
+    box-shadow: 0 8px 16px rgba(150, 214, 136, 0.5); /* Change shadow on hover */
+}
+.card2:hover {
+    box-shadow: 0 8px 16px rgba(150, 214, 136, 0.5);  /* Change shadow on hover */
+}
+.card3:hover {
+    box-shadow: 0 8px 16px  rgba(150, 214, 136, 0.5); /* Change shadow on hover */
+}
+
+li{
+    font-size: larger;
+    margin-bottom: 8px;
+    
+}
+
+h1{
+    color:rgb(4, 4, 4);
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    font-weight: bold;
+    
+    margin-top:30px;
+    margin-top: 10px ;
+    
+    
+    
+    
+}
+h3{
+   
+   
+    font-size: 24px;
+    font-weight: bolder;
+   
+}
+
+.pay{
+    height:50px;
+    width:120px;
+    border-radius: 10px;
+    background-color: black; 
+    margin-top:10px;
+    color:white;
+    font-weight: bolder;
+
+
+    
+}
+ul{
+    margin-top: 30px;
+}
+.pay:hover{
+    background-color: white;
+    color:black;
+    font-weight: bold;
+}
+
+
+
+
+.card h3 {
+    margin: 0;
+}
+
+

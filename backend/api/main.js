@@ -11,7 +11,7 @@ const roleRouter=require("../router/rolerouter")
 const authRouter=require("../router/authrouter")
 const userRouter=require("../router/userrouter")
 const playlistRouter = require("../router/playlistrouter");
-// const paymentRouter=require("../router/paymentrouter")
+const paymentRouter=require("../router/paymentrouter")
 const cors=require("cors");
 
 
@@ -25,8 +25,10 @@ ex.use("/", roleRouter);
 ex.use("/", authRouter);
 ex.use("/",userRouter);
 ex.use("/", playlistRouter);
-// ex.use("/",paymentRouter);
+ex.use("/",paymentRouter);
 ex.use('/uploads/images', express.static('uploads/images'));
+ex.use('/uploads/audio', express.static('uploads/audio'));
+
 
 
 

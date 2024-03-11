@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { HttpClientModule } from '@angular/common/http';
 import { HomeRoutingModule } from './home-routing.module';
 import { CardComponent } from './card/card.component';
 import { FooterComponent } from './footer/footer.component';
@@ -28,7 +28,8 @@ import { SongDetailComponent } from './song-detail/song-detail.component';
     RouterModule,
     AuthenticationModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule 
   ],
   exports:[SideBarComponent,TopNavComponent, FooterComponent, HomeComponent, CardComponent, SongDetailComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

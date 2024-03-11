@@ -1,10 +1,28 @@
 const Razorpay = require('razorpay');
 const Payment = require('../model/paymentmodel');
+// Assuming you have a User model
 
 const razorpay = new Razorpay({
   key_id: 'rzp_test_XI7WHiqg2QZPmd',
   key_secret: 'LizSmj5FDtYJ1b4ocNLWFc5Q'
 });
+
+// Define the generatepaymentId function
+const generatepaymentId = async () => {
+  try {
+    const highestExistingPayment= await Payment.findOne().sort({ paymentId: -1 });
+    let newPaymentId;
+    if (highestExistingPayment && highestExistingPayment.paymentId) {
+      newPaymentId = highestExistingPayment.paymentId+ 1;
+    } else {
+      newPaymentId = 1;
+    }
+    return newPaymentId;
+  } catch (error) {
+    console.error('Error generating userId:', error);
+    throw new Error('Error generating userId');
+  }
+};
 
 exports.createOrder = async (req, res) => {
   const { amount } = req.body;
@@ -22,8 +40,9 @@ exports.createOrder = async (req, res) => {
     };
 
     const order = await razorpay.orders.create(options);
-
+    const paymentId = await generatepaymentId(); // Use the generatepaymentId function
     const payment = new Payment({
+      paymentId,
       orderId: order.id,
       amount: amount,
       currency: "INR",
@@ -37,4 +56,4 @@ exports.createOrder = async (req, res) => {
     console.error('Error creating Razorpay order:', error);
     res.status(error.statusCode || 500).send({ error: error.message });
   }
-};2
+};
