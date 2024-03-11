@@ -74,7 +74,9 @@ export class SongsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.fetchSongs(); 
+      if (result === 'success') {
+        this.fetchSongs(); // Refresh the song list only if the upload was successful
+      }
     });
   }
 

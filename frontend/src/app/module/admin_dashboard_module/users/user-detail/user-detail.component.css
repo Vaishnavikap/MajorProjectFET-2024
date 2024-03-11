@@ -1,51 +1,53 @@
-.modal {
-    display: none; 
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+.playlist-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 200px; /* Set the width of each playlist card */
+}
+.user-details{
+  display: flex;
+}
+.playlist-card h3 {
+  padding: 10px;
+  margin: 0;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+.song-card {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.song-image-container {
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
+
+.song-image {
+  width: 50px; /* Adjust the image size as needed */
+  height: 50px; /* Adjust the image size as needed */
+  object-fit: cover;
+}
+
+.song-details {
+  flex: 1 1 auto;
+}
+
+.song-title {
+  font-weight: bold;
+  font-size: 14px; /* Adjust the font size as needed */
+  margin-bottom: 5px;
+}
+
+
+  .song-info {
+    font-size: 10px; /* Adjust the font size as needed */
   }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .modal-header h2 {
-    margin: 0;
-  }
-  
-  .close-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: #888;
-  }
-  
-  .close-button:hover {
-    color: #000;
-  }
-  
-  .modal-body {
-    padding-top: 20px;
-  }
-  
-  .modal-body p {
-    margin: 5px 0;
-  }
-  
+   /* Adjust the font size as needed */
+

@@ -1,18 +1,61 @@
-<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+<!-- <button mat-icon-button class="close-button" [mat-dialog-close]="true">
     <mat-icon class="close-icon">close</mat-icon>
   </button>
-<div class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>User Details</h2>
-        
+  <div class="user-details">
+    <h2>User Details</h2>
+    <ng-container *ngIf="playlists && playlists.length > 0; else noPlaylists">
+     
+      <div *ngFor="let playlist of playlists" class="playlist">
+        <h3>{{ playlist.name }}</h3>
+        <ul>
+        <li *ngFor="let song of playlist.songs" class="song">
+          <div>{{ song.title }}</div>
+          <div>Artist: {{ song.artist }}</div>
+          <div>Album: {{ song.album }}</div>
+          <div><img class="song-image" [src]="'http://localhost:3000/' + song.imageFile" alt="Song Image"> </div>
+        </li>
+      </ul>
       </div>
-      <div class="modal-body">
-        <p><strong>First Name:</strong> {{ user.FirstName }}</p>
-        <p><strong>Last Name:</strong> {{ user.LastName }}</p>
-        <p><strong>Email:</strong> {{ user.email }}</p>
-        <p><strong>Role:</strong> {{ user.isAdmin ? 'Admin' : 'User' }}</p>
+    </ng-container>
+   
+    <ng-template #noPlaylists>
+      <p>No playlists created by this user yet.</p>
+    </ng-template>
+  
+    <div *ngIf="loading">Loading...</div>
+  
+
+   
+  </div>
+  
+   -->
+
+
+   <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+    <mat-icon class="close-icon">close</mat-icon>
+  </button>
+  <div class="user-details">
+
+    <ng-container *ngIf="playlists && playlists.length > 0; else noPlaylists">
+      <div *ngFor="let playlist of playlists" class="playlist-card">
+        <h3>{{ playlist.name }}</h3>
+        <div *ngFor="let song of playlist.songs" class="song-card">
+          <div class="song-image-container">
+            <img class="song-image" [src]="'http://localhost:3000/' + song.imageFile" alt="Song Image">
+          </div>
+          <div class="song-details">
+            <div class="song-title">{{ song.title }}</div>
+            <div class="song-info">Artist: {{ song.artist }}</div>
+            <div class="song-info">Album: {{ song.album }}</div>
+          </div>
+        </div>
       </div>
-    </div>
+    </ng-container>
+  
+    <ng-template #noPlaylists>
+      <p>No playlists created by this user yet.</p>
+    </ng-template>
+  
+    <div *ngIf="loading">Loading...</div>
   </div>
   

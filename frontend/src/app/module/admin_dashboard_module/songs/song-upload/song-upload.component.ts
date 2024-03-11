@@ -43,7 +43,8 @@ console.log(formData);
         console.log("done")
         alert('Song uploaded successfully.');
         this.uploadForm.reset();
-        this.dialogRef.close();
+        // this.dialogRef.close();
+        this.dialogRef.close('success');
       },
       (      error: any) => {
         console.error(error);
