@@ -35,3 +35,8 @@
     </tbody>
   </table>
 </div>
+<div class="pagination">
+  <button (click)="previousPage()" *ngIf="currentPage > 1">Previous</button>
+  <button *ngFor="let page of pages" (click)="goToPage(page)">{{ currentPage }}</button>
+  <button (click)="nextPage()" *ngIf="currentPage < totalPages">Next</button>
+</div>

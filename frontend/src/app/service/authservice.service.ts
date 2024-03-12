@@ -11,13 +11,13 @@ export class AuthserviceService {
   
     getUserId(): number {
     
-      const userId = sessionStorage.getItem('userId');
+      const userId = localStorage.getItem('userId');
       return userId ? +userId : null; 
     }
 
 
     isLoggedIn(): boolean {
-      return !!sessionStorage.getItem('token');
+      return !!localStorage.getItem('token');
     }
   
   

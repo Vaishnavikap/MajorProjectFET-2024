@@ -37,6 +37,7 @@ export class TopNavComponent implements OnInit {
     }
     );
   }
+  
  
   ngOnInit(): void {
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
@@ -45,8 +46,8 @@ export class TopNavComponent implements OnInit {
     });
 
  
-    if (typeof sessionStorage !== 'undefined') {
-      const token = sessionStorage.getItem('token');
+    if (typeof localStorage !== 'undefined') {
+      const token = localStorage.getItem('token');
   
       this.isLoggedIn = !!token; 
   
@@ -56,8 +57,8 @@ export class TopNavComponent implements OnInit {
    
   logout(): void {
   
-    sessionStorage.removeItem('token');
- sessionStorage.removeItem('userId')
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId')
     this.isLoggedIn = false;
    
     this.router.navigate(['/']);

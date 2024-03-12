@@ -33,7 +33,7 @@ export class PremiumComponent implements OnInit {
   }
   
   makePayment(amount: number): void {
-    const userId = sessionStorage.getItem('userId');
+    const userId = localStorage.getItem('userId');
 
     if (!userId) {
       console.error('User ID not found in session storage');

@@ -17,16 +17,12 @@ export class ContactUsComponent {
   constructor(private api:ApiService){}
 
   submitForm() {
-
-    console.log(this.formData);
     this.api.createform(this.formData).subscribe((res)=>{
-      console.log(res)
       this.formData = {
         name: "",
         email: "",
         message: ""
-      };
-     
+      }; 
     },(err)=>{
       console.log(err);
     })

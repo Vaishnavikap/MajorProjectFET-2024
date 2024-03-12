@@ -16,17 +16,7 @@ const generatePlaylistId = async () => {
     }
   };
   
-  // const createPlaylist = async (req, res) => {
-  //   try {
-  //     const { name, songs } = req.body;
-  //     const playlistId = await generatePlaylistId(); // Use the generated playlistId
-  //     const playlist = new Playlist({ playlistId, name, songs });
-  //     const savedPlaylist = await playlist.save();
-  //     res.json(savedPlaylist);
-  //   } catch (error) {
-  //     res.status(400).json({ message: error.message });
-  //   }
-  // };
+
   const createPlaylist = async (req, res) => {
     try {
       const { name, songs, userId } = req.body;

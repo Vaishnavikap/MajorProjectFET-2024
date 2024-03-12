@@ -17,6 +17,7 @@
   position: relative;
   margin-left: 25px;
   margin-top: 2%;
+  margin-right: 25px;
 }
 
 .playlist-details {
@@ -28,6 +29,7 @@
 .playlist-details h3 {
   font-size: 18px;
   margin-bottom: 10px;
+  font-weight: 900;
 }
 
 .songs-list {
@@ -50,13 +52,15 @@
 }
 
 .song-title {
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .song-info {
   font-size: 14px;
 }
-
+.song1{
+  font-size: small;
+}
 .no-playlists-message {
   margin-top: 20px;
   font-style: italic;

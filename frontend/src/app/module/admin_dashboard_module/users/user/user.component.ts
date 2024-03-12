@@ -10,6 +10,10 @@ import { UserDetailComponent } from '../user-detail/user-detail.component';
 })
 export class UserComponent implements OnInit {
   users: any[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 5;
+  totalPages: number=0;
+
 
   constructor(private dialog: MatDialog, private http: HttpClient) { }
 
@@ -18,10 +22,12 @@ export class UserComponent implements OnInit {
   }
 
   fetchUsers(): void {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
     this.http.get<any[]>('http://localhost:3000/user')
       .subscribe(users => {
-        this.users = users;
-        this.fetchPaymentsForUsers(); 
+        this.users = users.slice(startIndex, endIndex);
+        this.totalPages = Math.ceil(users.length / this.itemsPerPage);
       });
   }
 
@@ -29,7 +35,7 @@ export class UserComponent implements OnInit {
     this.users.forEach(user => {
       this.http.get<any[]>(`http://localhost:3000/payment/userId/${user.userId}`)
         .subscribe(payments => {
-          user.payments = payments; // Add payments array to each user object
+          user.payments = payments; 
         });
     });
   }
@@ -65,7 +71,37 @@ export class UserComponent implements OnInit {
     });
     
   }
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      console.log("current page", this.currentPage);
+      
+      this. fetchUsers();
+    }
   
+  }
+
+  previousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this. fetchUsers();
+    }
+  }
+
+
+
+  goToPage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this. fetchUsers(); // Assuming fetchSongs method fetches songs for the selected page
+    }
+  }
+  
+  get pages(): number[] {
+    const totalUsers = this.users.length; // Assuming you have the total number of songs
+    const totalPages = Math.ceil(totalUsers / this.itemsPerPage);
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
   getPlanName(amount: number): string {
     switch (amount) {
       case 119:

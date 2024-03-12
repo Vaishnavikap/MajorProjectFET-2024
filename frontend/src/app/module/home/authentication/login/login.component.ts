@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, HostListener } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar'; 
 import { UserRegistrationService } from '../../../../service/user-registration.service';
@@ -20,7 +20,14 @@ export class LoginComponent {
     private service: UserRegistrationService,
     private router: Router,
     private snackBar: MatSnackBar 
-  ) {}
+  ) {
+    // Listen for storage events to synchronize session storage across tabs
+    window.addEventListener('storage', (event) => {
+      if (event.key === 'logoutEvent') {
+        this.logoutUser();
+      }
+    });
+  }
 
   user = new FormGroup({
     "email": new FormControl("", [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
@@ -33,8 +40,8 @@ export class LoginComponent {
         console.log("Role:", response.roles);
       }
 
-      sessionStorage.setItem('token', response.token);
-      sessionStorage.setItem('userId', response.data.userId);
+      localStorage.setItem('token', response.token);
+      localStorage.setItem('userId', response.data.userId);
 
       if (response.roles.includes('Admin')) {
         console.log("admin login");
@@ -52,6 +59,21 @@ export class LoginComponent {
     });
   }
 
+  // Function to handle logout
+  logoutUser() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    this.router.navigate(['/login']);
+    this.snackBar.open('Logged out!', 'Dismiss', {
+      duration: 3000,
+      verticalPosition: 'top'
+    });
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  beforeUnloadHandler(event: Event) {
+    sessionStorage.setItem('logoutEvent', Date.now().toString());
+  }
 
   closeDialog() {
     this.dialogRef.close();
