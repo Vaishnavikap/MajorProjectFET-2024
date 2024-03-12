@@ -15,8 +15,6 @@ interface Card {
 })
 export class CardComponent implements OnInit{
 
-  
-  
   togglePlayIcon(card: Card) {
     card.showPlayIcon = !card.showPlayIcon;
   }
@@ -28,7 +26,7 @@ export class CardComponent implements OnInit{
   ngOnInit(): void {
     this.getSongs();
   }
-  
+
   getSongs(): void {
     this.songService.getSongs().subscribe(
       (data) => {
@@ -40,17 +38,12 @@ export class CardComponent implements OnInit{
       }
     );
   }
-  
-  
 
   showSongDetail(selectedSong: any): void {
     if (selectedSong && selectedSong.customId) {
-      // Navigate to the song detail page
-      this.router.navigate(['/song', selectedSong.customId]);
+      this.router.navigate(['/home/song', selectedSong.customId]);
     } else {
       console.error('Invalid or missing song details:', selectedSong.customId);
     }
   }
-  
-
 }

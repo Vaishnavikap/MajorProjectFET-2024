@@ -1,87 +1,81 @@
-
 <div class="dialog-content" >
     <button mat-icon-button class="close-button" [mat-dialog-close]="true">
         <mat-icon class="close-icon">close</mat-icon>
-      </button>
-              <div class="detail-section">
-                <div class="circle-background"></div>
-                <div class="circle-background1"></div>
-             
-                  <div class="information">
-                      <b><h1 class="heading__h1">Music for everyone.</h1></b>
-                      <div class="little-info"> 
-                          <ul class="custom-list">
-                            <li>Personalized playlists based on your taste</li>
-                              <li>Shuffle play</li>
-                              <li>Ad Free Songs</li>
-                              <li>Play any track</li>
-                              <li>High Quality Audio</li>
-                          </ul>
-                          <span style="font-size:0.85em;">Join the music revolution today!</span>
-                          <br>
-                          <span style="font-size:0.85em;">Unleash the power of sound with us!</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="form-section">
-                  <div class="form-container">
-                      <form [formGroup]="user" (ngSubmit)="registerUser()">
-                          <div>
-                              <label for="name">Fist Name:</label>
-                              <input type="text" id="FirstName" formControlName="FirstName">
-                              <div class="error" *ngIf="user.get('FirstName')?.invalid && user.get('FirstName')?.touched">
-                                  <div class="error" *ngIf="user.get('FirstName')?.errors?.['required']">
-                                      First Name is required.
-                                  </div>
-                              </div>
-                          </div>
-                          <div>
-                            <label for="name">Last Name:</label>
-                            <input type="text" id="LastName" formControlName="LastName">
-                            <div *ngIf="user.get('LastName')?.invalid && user.get('LastName')?.touched">
-                                <div class="error" *ngIf="user.get('LastName')?.errors?.['required']">
-                                 Last Name is required.
-                                </div>
-                            </div>
+    </button>
+    <div class="detail-section">
+        <div class="circle-background"></div>
+        <div class="circle-background1"></div>
+        <div class="information">
+            <b><h1 class="heading__h1">Music for everyone.</h1></b>
+            <div class="little-info"> 
+                <ul class="custom-list">
+                    <li>Personalized playlists based on your taste</li>
+                    <li>Shuffle play</li>
+                    <li>Ad Free Songs</li>
+                    <li>Play any track</li>
+                    <li>High Quality Audio</li>
+                </ul>
+                <span style="font-size:0.85em;">Join the music revolution today!</span>
+                <br>
+                <span style="font-size:0.85em;">Unleash the power of sound with us!</span>
+            </div>
+        </div>
+    </div>
+    <div class="form-section">
+        <div class="form-container">
+            <form [formGroup]="user" (ngSubmit)="registerUser()">
+                <div>
+                    <label for="name">First Name:</label>
+                    <input type="text" id="FirstName" formControlName="FirstName">
+                    <div class="error" *ngIf="user.get('FirstName')?.invalid && user.get('FirstName')?.touched">
+                        <div class="error" *ngIf="user.get('FirstName')?.errors?.['required']">
+                            First Name is required.
                         </div>
-                          <div>
-                              <label for="email">Email:</label>
-                              <input type="email" id="email" formControlName="email">
-                              <div class="error" *ngIf="user.get('email')?.invalid && user.get('email')?.touched">
-                                  <div *ngIf="user.get('email')?.errors?.['required']">
-                                      Email is required.
-                                  </div>
-                                  <div class="error" *ngIf="user.get('email')?.errors?.['emailPattern']">
-                                      Invalid email format. Please use an email address ending with 'gmail.com'.
-                                  </div>
-                              </div>
-                          </div>
-                          <div>
-                              <label for="password">Password:</label>
-                         
-                              <div class="password-wrapper">
-                                <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password">
-                                <button type="button" (click)="togglePasswordVisibility()" class="password-toggle">
-                                    <i [class]="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"></i>
-                                </button>
-                            </div>
-
-                              <div *ngIf="user.get('password')?.invalid && user.get('password')?.touched">
-                                  <div class="error" *ngIf="user.get('password')?.errors?.['required']">
-                                      Password is required.
-                                  </div>
-                                  <div  class="error" *ngIf="user.get('password')?.errors?.['pattern']">
-                                      Password must contain at least one uppercase letter, one lowercase letter, and one symbol.
-                                  </div>
-                                  <div class="error"  *ngIf="user.get('password')?.errors?.['minlength']">
-                                      Password must be at least 8 characters long.
-                                  </div>
-                              </div>
-                          </div>
-                      
-                          <button type="submit"  [mat-dialog-close]="true">Sign Up</button>
-                      </form>
-                  </div>
-              </div>
-        
+                    </div>
+                </div>
+                <div>
+                    <label for="name">Last Name:</label>
+                    <input type="text" id="LastName" formControlName="LastName">
+                    <div *ngIf="user.get('LastName')?.invalid && user.get('LastName')?.touched">
+                        <div class="error" *ngIf="user.get('LastName')?.errors?.['required']">
+                            Last Name is required.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" formControlName="email">
+                    <div class="error" *ngIf="user.get('email')?.invalid && user.get('email')?.touched">
+                        <div *ngIf="user.get('email')?.errors?.['required']">
+                            Email is required.
+                        </div>
+                        <div class="error" *ngIf="user.get('email')?.errors?.['pattern']">
+                            Invalid email format.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <div class="password-wrapper">
+                        <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password">
+                        <button type="button" (click)="togglePasswordVisibility()" class="password-toggle">
+                            <i [class]="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'"></i>
+                        </button>
+                    </div>
+                    <div *ngIf="user.get('password')?.invalid && user.get('password')?.touched">
+                        <div class="error" *ngIf="user.get('password')?.errors?.['required']">
+                            Password is required.
+                        </div>
+                        <div  class="error" *ngIf="user.get('password')?.errors?.['pattern']">
+                            Password must contain at least one uppercase letter, one lowercase letter, and one symbol.
+                        </div>
+                        <div class="error"  *ngIf="user.get('password')?.errors?.['minlength']">
+                            Password must be at least 8 characters long.
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" [mat-dialog-close]="true">Sign Up</button>
+            </form>
+        </div>
+    </div>
 </div>

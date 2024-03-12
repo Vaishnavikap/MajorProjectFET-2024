@@ -55,11 +55,11 @@ export class TopNavComponent implements OnInit {
  
    
   logout(): void {
-    // Clear the token from session storage
+  
     sessionStorage.removeItem('token');
-    // Update isLoggedIn flag
+ sessionStorage.removeItem('userId')
     this.isLoggedIn = false;
-    // Redirect to home or any other desired page
+   
     this.router.navigate(['/']);
   }
 
@@ -67,7 +67,7 @@ export class TopNavComponent implements OnInit {
   search(event: any): void {
     const query = event?.target?.value || '';
     this.searchService.search(query).subscribe((allResults: any[]) => {
-      // Filter the results based on the search query
+    
       this.searchResults = allResults.filter(result =>
         this.matchSearchQuery(result, query)
       );

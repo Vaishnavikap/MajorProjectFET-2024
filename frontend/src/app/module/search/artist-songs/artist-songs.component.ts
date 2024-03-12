@@ -1,7 +1,8 @@
 // artist-songs.component.ts
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlaylistService } from '../../../service/playlist.service';
+import { SongService } from '../../../service/song.service';
 
 @Component({
   selector: 'app-artist-songs',
@@ -12,7 +13,7 @@ export class ArtistSongsComponent implements OnInit {
   artist: string = '';
   artistSongs: any[] = [];
 
-  constructor(private route: ActivatedRoute, private playlistService : PlaylistService) {}
+  constructor(private route: ActivatedRoute, private playlistService : PlaylistService, private songService: SongService, private router: Router) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -30,5 +31,12 @@ export class ArtistSongsComponent implements OnInit {
     });
     console.log(this.artistSongs);
     
+  }
+  showSongDetail(selectedSong: any): void {
+    if (selectedSong && selectedSong.customId) {
+      this.router.navigate(['/home/song', selectedSong.customId]);
+    } else {
+      console.error('Invalid or missing song details:', selectedSong.customId);
+    }
   }
 }

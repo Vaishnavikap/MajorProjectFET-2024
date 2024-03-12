@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   isAdmin = false;
+
   private dialogRef: MatDialogRef<LoginComponent>;
   @Inject(MAT_DIALOG_DATA) public data: any;
 
@@ -22,7 +23,7 @@ export class LoginComponent {
   ) {}
 
   user = new FormGroup({
-    "email": new FormControl("", [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@gmail\.com$/)]),
+    "email": new FormControl("", [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
     "password": new FormControl("", [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]),
   });
 
@@ -45,11 +46,12 @@ export class LoginComponent {
 
       this.snackBar.open('Login Successfully!', 'Dismiss', {
         duration: 3000,
+        verticalPosition: 'top'
       });
-
       this.dialogRef.close();
     });
   }
+
 
   closeDialog() {
     this.dialogRef.close();

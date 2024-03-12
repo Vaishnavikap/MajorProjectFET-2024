@@ -35,9 +35,10 @@
           <div class="error" *ngIf="user.get('email')?.invalid && user.get('email')?.touched">
             <div *ngIf="user.get('email')?.errors?.['required']">
               Email is required.
+              
             </div>
-            <div class="error"*ngIf="user.get('email')?.errors?.['emailPattern']">
-              Invalid email format. Please use an email address ending with 'gmail.com'.
+            <div class="error"*ngIf="user.get('email')?.errors?.['pattern']">
+              Invalid email format.
             </div>
           </div>
         </div>
@@ -48,12 +49,9 @@
             <div *ngIf="user.get('password')?.errors?.['required']">
               Password is required.
             </div>
-            <div class="error" *ngIf="user.get('password')?.errors?.['pattern']">
-              Password must contain at least one uppercase letter, one lowercase letter, and one symbol.
-            </div>
-            <div  class="error"*ngIf="user.get('password')?.errors?.['minlength']">
-              Password must be at least 8 characters long.
-            </div>
+            <div class="error" *ngIf="user.get('password')?.errors?.['pattern'] || user.get('password')?.errors?.['minlength']">
+            Invalid Password
+          </div>
           </div>
         </div>
         <button type="submit" [mat-dialog-close]="true"(click)="loginUser()">Sign In</button>

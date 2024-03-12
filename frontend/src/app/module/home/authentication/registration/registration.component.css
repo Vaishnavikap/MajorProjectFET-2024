@@ -20,6 +20,7 @@
 }
 .error{
   color: red;
+  font-size: small;
 }
 
 .circle-background {
@@ -68,7 +69,7 @@
   color: #fffdfd; 
 }
 .custom-list li {
-  margin-bottom: 10px; /* Adjust the value as needed */
+  margin-bottom: 10px; 
 }
 
 
@@ -85,7 +86,15 @@ ul {
 .links__p {
   text-align: center;
 }
+custom-snackbar {
+  background-color: red; 
+  color: white; 
+}
 
+.custom-success-snackbar {
+  background-color: green; 
+  color: white; 
+}
 .links__p a {
   color: #007bff; 
   text-decoration: none;
@@ -127,7 +136,7 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
   outline: none;
-  border-color: #007bff; 
+  border-color: #000000; 
 }
 
 button[type="submit"] {
@@ -154,7 +163,7 @@ button[type="submit"]:hover {
 }
 
 .password-wrapper input {
-  padding-right: 30px; /* Adjust the padding to accommodate the eye icon */
+  padding-right: 30px; 
 }
 
 .password-toggle {

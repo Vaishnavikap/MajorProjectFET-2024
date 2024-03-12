@@ -1,5 +1,22 @@
 <div *ngIf="song" class="song-detail-container">
-  <img [src]="song.imageUrl" alt="{{ song.title }}" class="song-detail-image">
-  <h2 class="song-detail-title">{{ song.title }}</h2>
-  <p class="song-detail-artist">{{ song.artist }}</p>
+  
+  <div>
+    <img [src]="'http://localhost:3000/' + song.imageFile" alt="{{ song.image }}" class="song-detail-image
+  ">
+  </div>
+  <div>
+    <img [src]="'http://localhost:3000/' + song.imageFile" alt="{{ song.image }}" class="song-detail-overlay
+  ">
+ 
+  </div>
+  <div class="song-details">
+    <h2 class="song-detail-title">{{ song.title }}</h2>
+    <p class="song-detail-artist">{{ song.artist }}</p>
+
+    <audio  class="audio-control" controls controlsList="nodownload">
+      <source class="ser" [src]="'http://localhost:3000/' + song.audioFile" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
 </div>

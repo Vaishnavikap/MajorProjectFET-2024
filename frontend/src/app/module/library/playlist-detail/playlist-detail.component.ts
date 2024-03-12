@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PlaylistService } from '../../../service/playlist.service';
-
+import { MatDialog } from '@angular/material/dialog';
+import { SongService } from '../../../service/song.service';
 @Component({
   selector: 'app-playlist-detail',
   templateUrl: './playlist-detail.component.html',
@@ -12,7 +13,10 @@ export class PlaylistDetailComponent implements OnInit {
   searchTerm: string = '';
   filteredSongs: any[] = [];
 
-  constructor(private route: ActivatedRoute, private playlistService: PlaylistService) {}
+  constructor(private route: ActivatedRoute, private playlistService: PlaylistService,
+  private songService: SongService, 
+  private router: Router,
+  private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -22,23 +26,31 @@ export class PlaylistDetailComponent implements OnInit {
         this.playlistService.getPlaylistById(playlistId).subscribe(
           playlist => {
             this.playlist = playlist;
-            this.filteredSongs = [...playlist.songs]; // Initialize filteredSongs with all songs
+            this.filteredSongs = [...playlist.songs]; 
           },
           error => {
             console.error('Error fetching playlist:', error);
-            // Handle error
+
           }
         );
       }
     });
   }
 
-  // Function to filter songs based on the search term
+  
   filterSongs(): void {
     this.filteredSongs = this.playlist.songs.filter(song =>
       song.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
       song.album.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
       song.artist.toLowerCase().includes(this.searchTerm.toLowerCase())
     );
+  }
+
+  showSongDetail(selectedSong: any): void {
+    if (selectedSong && selectedSong.customId) {
+      this.router.navigate(['/home/song', selectedSong.customId]);
+    } else {
+      console.error('Invalid or missing song details:', selectedSong.customId);
+    }
   }
 }

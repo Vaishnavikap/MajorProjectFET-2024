@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from '../../../service/playlist.service';
 import { Router } from '@angular/router';
 import { AuthserviceService } from '../../../service/authservice.service';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-all-playlists',
@@ -14,7 +15,8 @@ export class AllPlaylistsComponent implements OnInit {
   constructor(
     private playlistService: PlaylistService,
     private authService: AuthserviceService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar 
   ) {}
 
   ngOnInit(): void {
@@ -31,18 +33,17 @@ export class AllPlaylistsComponent implements OnInit {
         },
         (error) => {
           console.error('Error fetching playlists:', error);
-          // Handle error
+
         }
       );
     } else {
       console.error('User ID not available');
-      // Handle the case where the user ID is not available
+    
     }
   }
 
   toggleSongs(playlist: any): void {
-    // Toggle the showSongs property to display/hide songs
-    playlist.showSongs = !playlist.showSongs;
+   playlist.showSongs = !playlist.showSongs;
   }
   
   navigateToDetail(playlist: any): void {
@@ -50,18 +51,33 @@ export class AllPlaylistsComponent implements OnInit {
     this.router.navigate(['/home/playlist', playlist.playlistId]);
   }
 
-  deletePlaylist(playlistId: number): void {
-    // Call the service method to delete the playlist
+  deletePlaylist(playlistId: number, event: Event): void {
+    
+    event.stopPropagation();
+  
+    
     this.playlistService.deletePlaylist(playlistId).subscribe(
       () => {
         console.log('Playlist deleted successfully');
-        // Reload playlists after deletion
+
+        
+        this.showSnackBar('Playlist Deleted Successfully');
+
+        
         this.loadPlaylists();
       },
       (error) => {
         console.error('Error deleting playlist:', error);
-        // Handle error
-      }
+         }
     );
+  }
+
+  private showSnackBar(message: string): void {
+    const snackBarConfig: MatSnackBarConfig = {
+      duration: 3000,
+      verticalPosition: 'top',
+    };
+
+    this.snackBar.open("Playlist Deleted Successfully", 'Dismiss', snackBarConfig);
   }
 }

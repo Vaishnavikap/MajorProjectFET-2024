@@ -16,7 +16,7 @@ h2{
 }
 .container{
     display:flex;
-    margin-top: -45px;
+    margin-top: 15px;
     margin-left: 110px;
     box-sizing: border-box;
 }
@@ -66,24 +66,17 @@ li{
 }
 
 h1{
-    color:white;
+    color:rgb(7, 7, 7);
     text-align: center;
     cursor: pointer;
     transition: box-shadow 0.3s;
     font-weight: bolder;
     
     margin-top:30px;
-    margin-top: 10px ;
-    
-    
-    
-    
+
 }
-h3{
-   
-   
-    font-size: 24px;
-   
+h3{  
+    font-size: 24px;   
 }
 
 .pay{
@@ -91,12 +84,9 @@ h3{
     width:120px;
     border-radius: 10px;
     background-color: black; 
-    margin-top:10px;
+    margin-top:20px;
     color:white;
-    font-weight: bolder;
-
-
-    
+    font-weight: bolder;    
 }
 ul{
     margin-top: 30px;
@@ -113,5 +103,7 @@ ul{
 .card h3 {
     margin: 0;
 }
+
+
 
 
