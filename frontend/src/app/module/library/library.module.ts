@@ -10,17 +10,19 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     LibraryComponent,
     AllPlaylistsComponent,
-    PlaylistDetailComponent
+    PlaylistDetailComponent,
+
   ],
   imports: [
     CommonModule,
     LibraryRoutingModule,
     RouterModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class LibraryModule { }

@@ -4,7 +4,7 @@
       <div class="playlist-card">
         <div class="playlist-info">
           <h4>{{ playlist.name }}</h4>
-          <i class="fa-solid fa-trash delete-icon" (click)="deletePlaylist(playlist.playlistId)"></i>
+          <i class="fa-solid fa-trash delete-icon" (click)="deletePlaylist(playlist.playlistId, $event)"></i>
         </div>
         <ul *ngIf="playlist.showSongs">
           <li *ngFor="let song of playlist.songs">{{ song.title }}</li>

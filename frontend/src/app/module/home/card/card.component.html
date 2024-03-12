@@ -1,7 +1,8 @@
 
  
   <div class="card-container">
-    <div *ngFor="let song of songs" class="card" (mouseover)="togglePlayIcon(song)" (mouseout)="togglePlayIcon(song)">
+    <div *ngFor="let song of songs" class="card" (click)="showSongDetail(song)" (mouseover)="togglePlayIcon(song)" (mouseout)="togglePlayIcon(song)">
+      <a [routerLink]="['/home/song', song.customId]"></a>
       <img [src]="song.imageUrl" alt="{{ song.title }}" class="card-image">
       <div class="card-content">
         <h3 class="card-title">{{ song.title }}</h3>

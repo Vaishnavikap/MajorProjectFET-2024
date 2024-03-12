@@ -8,6 +8,7 @@ import { AuthserviceService } from '../../../service/authservice.service';
   selector: 'app-create-playlist-modal',
   templateUrl: './create-playlist-modal.component.html',
   styleUrls: ['./create-playlist-modal.component.css'],
+  
 })
 export class CreatePlaylistModalComponent {
   playlistName: string = '';
@@ -27,6 +28,7 @@ export class CreatePlaylistModalComponent {
 
     this.snackBar.open('Playlist Created Successfully!!!', 'Dismiss', {
       duration: 3000,
+      verticalPosition: 'top',
     });
 
     this.dialogRef.close();

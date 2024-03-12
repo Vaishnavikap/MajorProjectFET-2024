@@ -9,6 +9,7 @@ import { SongService } from '../../../service/song.service';
 })
 export class SongDetailComponent implements OnInit {
   song: any; // Ensure you have this property
+ 
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +24,11 @@ export class SongDetailComponent implements OnInit {
         this.songService.getSongById(songId).subscribe(
           (data: any) => {
             this.song = data;
+            
+
+            
+
+
           },
           (error: any) => {
             console.error('Error fetching song details:', error);

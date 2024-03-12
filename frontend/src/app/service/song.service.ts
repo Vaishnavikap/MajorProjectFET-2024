@@ -16,8 +16,7 @@ export class SongService {
   }
 
   getSongById(id: string): Observable<any> {
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.get<any>(url);
+    return this.http.get<any>(`http://localhost:3000/getSongById/${id}`);
   }
 
   getArtists(): Observable<any[]> {
@@ -30,5 +29,8 @@ export class SongService {
     // Append the search term to the API endpoint
     const url = `${this.apiUrl}?search=${searchTerm}`;
     return this.http.get(url);
+  }
+  fetchAudio(audioUrl: string): Observable<Blob> {
+    return this.http.get(audioUrl, { responseType: 'blob' });
   }
 }

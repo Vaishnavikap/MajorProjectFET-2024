@@ -1,9 +1,8 @@
-/* search.component.css */
+
 .artist-cards-container{
  
     display: flex;
     flex-wrap: wrap;
-    /* justify-content:space-between; */
   }
   .playlist-header {
   font-weight: bold;

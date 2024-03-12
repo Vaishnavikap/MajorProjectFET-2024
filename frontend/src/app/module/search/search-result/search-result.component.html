@@ -9,7 +9,7 @@
                     <div class="song-subtitle">{{ result.artist }} - {{ result.album }}</div>
                 </div>
             </div>
-            <button class="play-button">Play</button>
+            <button class="play-button" (click)="showSongDetail(result)">Play</button>
         </div>
     </div>
     <ng-template #noResultsMessage>

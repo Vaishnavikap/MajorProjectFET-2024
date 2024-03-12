@@ -8,5 +8,4 @@ playlistRouter.get('/playlist/:playlistId', getPlaylistById);
 playlistRouter.get('/playlist/userId/:userId',getPlaylistByUserId );
 playlistRouter.delete('/playlist/:playlistId', deletePlaylist);
 
-
 module.exports = playlistRouter;
