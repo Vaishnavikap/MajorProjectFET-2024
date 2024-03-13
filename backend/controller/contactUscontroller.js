@@ -1,3 +1,6 @@
+
+//contact us controller
+
 const Contact = require('../model/contactUsmodel');
 
 exports.submitForm = async (req, res) => {
